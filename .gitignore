@@ -1,3 +1,8 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
 #Ignore node modules
 /server/node_modules
 /client/gardenshepherd/node_modules
