@@ -6,6 +6,7 @@ var cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const login_router = require('./login');
+const register_router = require('./register');
 
 const PORT = 4000;               // LOCAL PORT DEFINATIONS where the backend will be hosted..............
 
@@ -32,3 +33,4 @@ app.use(function(request, response, next) {
 //Internal Endpoint defination modules
  
 app.use('/login', login_router); //Login services 
+app.use('/register', register_router); // Register services
