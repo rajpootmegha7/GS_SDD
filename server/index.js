@@ -31,6 +31,6 @@ app.use(function(request, response, next) {
 })()
 
 //Internal Endpoint defination modules
- 
+
 app.use('/login', login_router); //Login services 
 app.use('/register', register_router); // Register services
