@@ -53,6 +53,11 @@ export default class forgotpass extends Component {
     }
 
     functionCaller() {
+        /*  change this function to query backend; it will 
+            check that the email in the box is valid
+            (later) ask for security questions
+            (later) generate the password
+        */
         this.generatePass();
         this.onClick("displayBasic");
     }
@@ -79,7 +84,7 @@ export default class forgotpass extends Component {
                     >
                         <div className="dialog-div">
                             Your temporary password is below. It will expire in 15 minutes.
-                            <div className="disp-pass">
+                            <div className="display-pass">
                                 {this.pass}
                             </div>
                         </div>
