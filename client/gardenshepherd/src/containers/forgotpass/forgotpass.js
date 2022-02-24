@@ -4,6 +4,7 @@ import './style.css'
 
 import { InputText } from 'primereact/inputtext';
 import { Dialog } from 'primereact/dialog';
+import { Toast } from 'primereact/toast';
 import Button from '../../components/Button';
 
 
@@ -11,17 +12,87 @@ export default class forgotpass extends Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
             displayBasic: false,
             position: "center",
+            email: "",
             pass: ""
         };
 
-        this.onClick = this.onClick.bind(this)
+        this.clickSubmit = this.clickSubmit.bind(this);
+        this.onShow = this.onShow.bind(this)
         this.onHide = this.onHide.bind(this);
     }
 
-    onClick(name, position) {
+
+/* WHY DOES THIS CAUSE AN ERROR ~~~~~~~~~~ 
+    clickSubmit(event) {
+        event.preventDefault();
+*/
+    clickSubmit() {
+        var data = {
+            _email: this.state.email
+        };
+        console.log(data);
+        
+        this.verifyEmail(data);
+    }
+
+
+    verifyEmail(data) {
+        console.log('In verify');
+        /* WHY IS IT NOT GETTING INTO THE CORRECT API ? 
+        ALSO, WHY DOES THE ROUTER IN INDEX LOOK DIFFERENT?*/
+        var request = new Request('http://localhost:4000/forgot/api/forgot_password', {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            //body: JSON.stringify(data)
+            body: this.state.email
+        });
+
+        var that = this;
+        fetch(request)
+            .then(function (response) {
+                if (response.status === 400) throw new Error('BAD Request');
+                else if (response.status === 405) throw new Error('No user with that email');
+                else if (response.status === 404) throw new Error('Not found');
+                
+                response.json().then(function (data) {
+                    console.log("in response block");
+                    localStorage.setItem('email', that.state.email);
+
+                    that.showSuccess('Sucessfully Logged In.');
+                });
+                
+                console.log("Within the fetch");
+                that.generatePass();
+                that.onShow("displayBasic");
+                /* response should be making dialogue box visible and displaying password*/
+            })
+            .catch(function (err) {
+                console.log("Error: " + err.message);
+                that.showError(err.message);
+            });
+    }
+
+
+    
+    showSuccess(message) {
+        this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
+    }
+    showError(message) {
+        console.log("Message " + message);
+        this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
+    }
+
+
+
+
+
+
+
+    onShow(name, position) {
         let state = {
             [`${name}`]: true
         };
@@ -34,32 +105,15 @@ export default class forgotpass extends Component {
         this.setState(state);
     }
 
-
     onHide(name) {
         this.setState({
             [`${name}`]: false
         });
     }
 
-
-
-    clickHandler() {
-        console.log('Button clicked');
-    }
-
     generatePass() {
         var randomPass = Math.random().toString(36).substr(2, 8);
         this.pass = randomPass;
-    }
-
-    functionCaller() {
-        /*  change this function to query backend; it will 
-            check that the email in the box is valid
-            (later) ask for security questions
-            (later) generate the password
-        */
-        this.generatePass();
-        this.onClick("displayBasic");
     }
 
     render() {
@@ -70,11 +124,12 @@ export default class forgotpass extends Component {
                     <div className="forgot">Forgot Password?</div>
                     <div className="input_container">
                         <label htmlFor="email" className="block">Email</label>
-                        <InputText id="email" aria-describedby="email-help" className="block" />
+                        <InputText  id="email" aria-describedby="email-help" className="block" 
+                                    onChange={(e) => this.setState({ email: e.target.value })}/>
                         <small id="email-help" className="block">Enter your email to get a temporary password.</small>
-                        <Button onClick={() => this.functionCaller()}>
+                        <Button onClick={this.clickSubmit}>
                             Submit
-                        </Button>
+                        </Button >
                     </div>
                     <Dialog
                         header="Hello" /*heading of popup*/
