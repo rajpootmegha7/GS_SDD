@@ -8,9 +8,54 @@ import Button from '../../components/Button';
 
 
 export default class forgotpass extends Component {
-    
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            displayBasic: false,
+            position: "center",
+            pass: ""
+        };
+
+        this.onClick = this.onClick.bind(this)
+        this.onHide = this.onHide.bind(this);
+    }
+
+    onClick(name, position) {
+        let state = {
+            [`${name}`]: true
+        };
+        if (position) {
+            state = {
+                ...state,
+                position
+            };
+        }
+        this.setState(state);
+    }
 
 
+    onHide(name) {
+        this.setState({
+            [`${name}`]: false
+        });
+    }
+
+
+
+    clickHandler() {
+        console.log('Button clicked');
+    }
+
+    generatePass() {
+        var randomPass = Math.random().toString(36).substr(2, 8);
+        this.pass = randomPass;
+    }
+
+    functionCaller() {
+        this.generatePass();
+        this.onClick("displayBasic");
+    }
 
     render() {
         return (
@@ -22,10 +67,23 @@ export default class forgotpass extends Component {
                         <label htmlFor="email" className="block">Email</label>
                         <InputText id="email" aria-describedby="email-help" className="block" />
                         <small id="email-help" className="block">Enter your email to get a temporary password.</small>
-                        <Button>
+                        <Button onClick={() => this.functionCaller()}>
                             Submit
                         </Button>
                     </div>
+                    <Dialog
+                        header="Hello" /*heading of popup*/
+                        visible={this.state.displayBasic}
+                        style={{ width: "50vw" }}
+                        onHide={() => this.onHide("displayBasic")}
+                    >
+                        <div className="dialog-div">
+                            Your temporary password is below. It will expire in 15 minutes.
+                            <div className="disp-pass">
+                                {this.pass}
+                            </div>
+                        </div>
+                    </Dialog>
 
                 </div>
 

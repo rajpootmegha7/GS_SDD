@@ -35,5 +35,10 @@
 .block {
     font-size: 0.8rem;
 }
-
+.dialog-div {
+    text-align: center;
+}
+.display-pass {
+    text-align: center;
+}
 
