@@ -1,0 +1,44 @@
+.image_container{
+    background: no-repeat;
+    background-image: url(../../images/wallpaper.jpeg);
+    height: 50em;
+    width: 100%;
+}
+.forgotpass_container {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    outline: 2px solid #cecece;
+}
+.forgot {
+    text-align: center;
+    margin-top: 10px;
+}
+.input_container {
+    position: relative;
+    height: 60%;
+    width: 300px;
+}
+#email {
+    padding: 15px 2%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+#email-help {
+    font-size: 12px;
+}
+.block {
+    font-size: 0.8rem;
+}
+.dialog-div {
+    text-align: center;
+}
+.display-pass {
+    text-align: center;
+}
+

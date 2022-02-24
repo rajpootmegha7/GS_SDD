@@ -97,7 +97,7 @@ export default class login extends Component {
                 <p id='label_text'>Enter Your Password</p>
                 <Password value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} toggleMask />
                 <span id ="forgot_password">
-                    <a href="url"> Forgot Password </a>
+                    <a href="/Forgot-Password"> Forgot Password </a>
                 </span>
                 
                 <Button id ="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit}/>
