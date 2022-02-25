@@ -3,7 +3,6 @@ import './style.css'
 
 
 import { InputText } from 'primereact/inputtext';
-import { Dialog } from 'primereact/dialog';
 import { Toast } from 'primereact/toast';
 import Button from '../../components/Button';
 
@@ -14,15 +13,19 @@ export default class forgotpass extends Component {
         super(props)
 
         this.state = {
-            displayBasic: false,
-            position: "center",
-            email: "",
-            pass: ""
+            showUsername: true,
+            showUsernameButton: true,
+            showSecurity: false,
+            showResetPass: false,
+            username: "",
+            securityQuestion: "What was the name of your first pet?",
+            securityAnswer: "",
+            pass1: "",
+            pass2: ""
         };
 
-        this.clickSubmit = this.clickSubmit.bind(this);
-        this.onShow = this.onShow.bind(this)
-        this.onHide = this.onHide.bind(this);
+        this.clickSubmitUsername = this.clickSubmitUsername.bind(this);
+        this.clickSubmitSecurity = this.clickSubmitSecurity.bind(this);
     }
 
 
@@ -30,51 +33,73 @@ export default class forgotpass extends Component {
     clickSubmit(event) {
         event.preventDefault();
 */
-    clickSubmit() {
+    clickSubmitUsername() {
         var data = {
-            _email: this.state.email
+            _username: this.state.username
         };
         console.log(data);
-        
-        this.verifyEmail(data);
+        this.setState({ showSecurity: true })
+        this.setState({ showUsernameButton: false })
+        this.verifyUsername(data);
     }
 
 
-    verifyEmail(data) {
+    verifyUsername(data) {
         console.log('In verify');
-        /* WHY IS IT NOT GETTING INTO THE CORRECT API ? 
-        ALSO, WHY DOES THE ROUTER IN INDEX LOOK DIFFERENT?*/
         var request = new Request('http://localhost:4000/forgot/api/forgot_password', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             //body: JSON.stringify(data)
-            body: this.state.email
+            body: this.state.username
         });
 
         var that = this;
         fetch(request)
             .then(function (response) {
                 if (response.status === 400) throw new Error('BAD Request');
-                else if (response.status === 405) throw new Error('No user with that email');
+                else if (response.status === 405) throw new Error('No user with that username');
                 else if (response.status === 404) throw new Error('Not found');
                 
                 response.json().then(function (data) {
                     console.log("in response block");
-                    localStorage.setItem('email', that.state.email);
-
+                    localStorage.setItem('username', that.state.username);
                     that.showSuccess('Sucessfully Logged In.');
                 });
                 
                 console.log("Within the fetch");
-                that.generatePass();
-                that.onShow("displayBasic");
-                /* response should be making dialogue box visible and displaying password*/
+//                that.state.securityQuestion --- save value from backend to this
             })
             .catch(function (err) {
-                console.log("Error: " + err.message);
+                console.log(err.message);
                 that.showError(err.message);
             });
     }
+
+
+
+
+
+
+    clickSubmitSecurity() {
+        var data = {
+            _securityAnswer: this.state.securityAnswer
+        };
+        console.log(data);
+        
+        this.verifyUsername(data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
@@ -82,68 +107,47 @@ export default class forgotpass extends Component {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
     showError(message) {
-        console.log("Message " + message);
         this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
     }
 
 
+    // generatePass() {
+    //     var randomPass = Math.random().toString(36).substr(2, 8);
+    //     this.pass = randomPass;
+    // }
 
-
-
-
-
-    onShow(name, position) {
-        let state = {
-            [`${name}`]: true
-        };
-        if (position) {
-            state = {
-                ...state,
-                position
-            };
-        }
-        this.setState(state);
-    }
-
-    onHide(name) {
-        this.setState({
-            [`${name}`]: false
-        });
-    }
-
-    generatePass() {
-        var randomPass = Math.random().toString(36).substr(2, 8);
-        this.pass = randomPass;
-    }
 
     render() {
         return (
             <Fragment>
+                <Toast ref={(el) => this.toast = el} />
                 <div className="image_container"></div>
-                <div className="forgotpass_container">
+
+                { this.state.showUsername ? <div className="forgotpass_container">
                     <div className="forgot">Forgot Password?</div>
                     <div className="input_container">
-                        <label htmlFor="email" className="block">Email</label>
-                        <InputText  id="email" aria-describedby="email-help" className="block" 
-                                    onChange={(e) => this.setState({ email: e.target.value })}/>
-                        <small id="email-help" className="block">Enter your email to get a temporary password.</small>
-                        <Button onClick={this.clickSubmit}>
+                        <label htmlFor="username" className="block">Username</label>
+                        <InputText  id="username" aria-describedby="username-help"
+                                    onChange={(e) => this.setState({ username: e.target.value })}/>
+                        <small id="username-help" className="block">Enter your username above.</small>
+                        { this.state.showUsernameButton ? <div>
+                            <Button onClick={this.clickSubmitUsername}>
+                                Submit
+                            </Button >
+                        </div> : null}
+                    </div>
+                    { this.state.showSecurity ? <div className="security_container" visible="false">
+                        <label htmlFor="username" className="block">{this.state.securityQuestion}</label>
+                        <InputText  id="username" aria-describedby="username-help"
+                                    onChange={(e) => this.setState({ securityAnswer: e.target.value })}/>
+                        <small id="username-help" className="block">Enter the answer above.</small>
+                        <Button onClick={this.clickSubmitSecurity}>
                             Submit
                         </Button >
-                    </div>
-                    <Dialog
-                        header="Hello" /*heading of popup*/
-                        visible={this.state.displayBasic}
-                        style={{ width: "50vw" }}
-                        onHide={() => this.onHide("displayBasic")}
-                    >
-                        <div className="dialog-div">
-                            Your temporary password is below. It will expire in 15 minutes.
-                            <div className="display-pass">
-                                {this.pass}
-                            </div>
-                        </div>
-                    </Dialog>
+                    </div> : null}
+                </div> : null}
+                <div className="resetpass_container">
+
 
                 </div>
 

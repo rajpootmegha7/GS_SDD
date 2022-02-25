@@ -12,6 +12,8 @@
     transform: translate(-50%, -50%);
     border-radius: 8px;
     outline: 2px solid #cecece;
+    height: fit-content;
+    width: fit-content;
 }
 .forgot {
     text-align: center;
@@ -19,26 +21,29 @@
 }
 .input_container {
     position: relative;
-    height: 60%;
-    width: 300px;
+    height: 100%;
+    width: 100%;
 }
-#email {
+#username {
     padding: 15px 2%;
     font-size: 16px;
     text-decoration: none;
     border-radius: 6px;
     margin: 0 auto;
 }
-#email-help {
+#username-help {
     font-size: 12px;
 }
 .block {
     font-size: 0.8rem;
+    outline: 2px solid #cecece;
 }
-.dialog-div {
-    text-align: center;
+.username_button {
+    /* outline: 2px solid #cecece; */
 }
-.display-pass {
-    text-align: center;
+.security_container {
+    /* outline: 2px solid #cecece; */
 }
-
+.resetpass_container {
+    /* outline: 2px solid #cecece; */
+}
