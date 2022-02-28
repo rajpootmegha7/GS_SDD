@@ -7,10 +7,12 @@ register_router.post('/api/create_userid', function (req, res) {
     var user_data = req.body;
     console.log(user_data)
     
-    var _username = user_data._username;
+    var _firstname = user_data._firstname;
+    var _lastname = user_data._lastname;
     var _password = user_data._password;
     var _email = user_data._email;
-    var _address = user_data._address;
+    var _country = user_data._address;
+    var _questioncode =user_data._questioncode;
     var _securityanswer = user_data._securityanswer;
 
     var username_query = util.format("SELECT * FROM userInfo where user_name=\'%s\'", _username);

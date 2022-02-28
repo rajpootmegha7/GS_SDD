@@ -37,9 +37,6 @@ login_router.post('/api/get_userid', function (req, res) {
             }
         })
     });
-
-
-
     
 });
 
