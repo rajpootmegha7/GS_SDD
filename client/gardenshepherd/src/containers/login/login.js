@@ -55,7 +55,7 @@ export default class login extends Component {
                 if (response.status === 400) throw new Error('BAD Request');
                 else if (response.status === 405) throw new Error('User not Available in DB');
                 else if (response.status === 406) throw new Error('Incorrect Password');
-
+                
                 response.json().then(function (data) {
                     localStorage.setItem('username', that.state.username);
                     localStorage.setItem('isLogged', 'true');

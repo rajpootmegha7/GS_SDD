@@ -20,6 +20,7 @@
     margin-top: 10px;
 }
 .input_container {
+    margin: 20px auto;
     position: relative;
     height: 100%;
     width: 100%;
@@ -36,14 +37,26 @@
 }
 .block {
     font-size: 0.8rem;
-    outline: 2px solid #cecece;
 }
 .username_button {
-    /* outline: 2px solid #cecece; */
+    outline: 2px solid #cecece; 
 }
 .security_container {
-    /* outline: 2px solid #cecece; */
+    margin: 20px auto;
+    /* outline: 2px solid #69bd95; */
 }
 .resetpass_container {
-    /* outline: 2px solid #cecece; */
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    outline: 2px solid #cecece;
+    height: fit-content;
+    width: fit-content;
+}
+.resetpass {
+    text-align: center;
+    margin-top: 10px;
 }

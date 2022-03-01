@@ -3,6 +3,7 @@ import './style.css'
 
 
 import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';
 import Button from '../../components/Button';
 
@@ -17,57 +18,52 @@ export default class forgotpass extends Component {
             showUsernameButton: true,
             showSecurity: false,
             showResetPass: false,
-            username: "",
-            securityQuestion: "What was the name of your first pet?",
-            securityAnswer: "",
-            pass1: "",
-            pass2: ""
+            username: '',
+            securityQuestion: '',
+            securityAnswer: '',
+            pass1: '',
+            pass2: ''
         };
 
         this.clickSubmitUsername = this.clickSubmitUsername.bind(this);
         this.clickSubmitSecurity = this.clickSubmitSecurity.bind(this);
+        this.clickSubmitPass = this.clickSubmitPass.bind(this);
     }
 
 
-/* WHY DOES THIS CAUSE AN ERROR ~~~~~~~~~~ 
-    clickSubmit(event) {
-        event.preventDefault();
-*/
+
+
     clickSubmitUsername() {
         var data = {
-            _username: this.state.username
+            _username: this.state.username,
         };
+        console.log("username is " + this.state.username);
         console.log(data);
-        this.setState({ showSecurity: true })
-        this.setState({ showUsernameButton: false })
         this.verifyUsername(data);
     }
 
 
     verifyUsername(data) {
-        console.log('In verify');
-        var request = new Request('http://localhost:4000/forgot/api/forgot_password', {
+        var request = new Request('http://localhost:4000/forgot_password/api/check_userid', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
-            //body: JSON.stringify(data)
-            body: this.state.username
+            body: JSON.stringify(data)
         });
 
         var that = this;
         fetch(request)
             .then(function (response) {
                 if (response.status === 400) throw new Error('BAD Request');
-                else if (response.status === 405) throw new Error('No user with that username');
+                else if (response.status === 406) throw new Error('No user with that username');
                 else if (response.status === 404) throw new Error('Not found');
                 
                 response.json().then(function (data) {
-                    console.log("in response block");
-                    localStorage.setItem('username', that.state.username);
-                    that.showSuccess('Sucessfully Logged In.');
+                    that.setState({securityQuestion: data.text});
+                    console.log(that.state.securityQuestion);
+                    that.showSuccess('Valid username');
+                    that.setState({ showSecurity: true })
+                    that.setState({ showUsernameButton: false })
                 });
-                
-                console.log("Within the fetch");
-//                that.state.securityQuestion --- save value from backend to this
             })
             .catch(function (err) {
                 console.log(err.message);
@@ -82,27 +78,91 @@ export default class forgotpass extends Component {
 
     clickSubmitSecurity() {
         var data = {
+            _username: this.state.username,
             _securityAnswer: this.state.securityAnswer
         };
         console.log(data);
-        
-        this.verifyUsername(data);
+        this.verifySecurity(data);
     }
 
 
 
+    verifySecurity(data) {
+        var request = new Request('http://localhost:4000/checkSecQuestion/api/check_sec', {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(data)
+        });
+        var that = this;
+        fetch(request)
+            .then(function (response) {
+                if (response.status === 400) throw new Error('BAD Request');
+                else if (response.status === 406) throw new Error('Wrong answer to security question');
+                else if (response.status === 404) throw new Error('Not found');
+
+                response.json().then(function (data) {
+                    that.showSuccess('Validation success');
+                    that.setState({ showResetPass: true })
+                    that.setState({ showUsername: false })
+                });
+            })
+            .catch(function (err) {
+                console.log(err.message);
+                that.showError(err.message);
+            });
+        }
 
 
 
 
 
+    clickSubmitPass() {
+        var data = {
+            _username: this.state.username,
+            _pass1: this.state.pass1
+        };
+        console.log(data);
 
+        if (!this.state.pass1) {
+            this.showError('Password field cannot be blank');
+            return;
+        }
+        if (!this.state.pass2) {
+            this.showError('Verify password field cannot be blank');
+            return;
+        } else if (this.state.pass1 !== this.state.pass2) {
+            this.showError('Passwords must match');
+            return;
+        }
+        this.updatePass(data);
+    }
 
+    updatePass(data) {
+        var request = new Request('http://localhost:4000/reset_password/api/reset', {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(data)
+        });
 
-
-
-
+        var that = this;
+        fetch(request)
+            .then(function (response) {
+                if (response.status === 400) throw new Error('BAD Request');
+                else if (response.status === 406) throw new Error('Error changing password');
+                else if (response.status === 404) throw new Error('Not found');
+                response.json().then(function (data) {
+                    console.log("Success");
+                });
+        })
+        .catch(function (err) {
+            console.log(err.message);
+            that.showError(err.message);
+        });
+    }
     
+
+
+
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
@@ -111,10 +171,6 @@ export default class forgotpass extends Component {
     }
 
 
-    // generatePass() {
-    //     var randomPass = Math.random().toString(36).substr(2, 8);
-    //     this.pass = randomPass;
-    // }
 
 
     render() {
@@ -146,10 +202,28 @@ export default class forgotpass extends Component {
                         </Button >
                     </div> : null}
                 </div> : null}
-                <div className="resetpass_container">
-
-
-                </div>
+                { this.state.showResetPass ? <div className="resetpass_container">
+                    <div className="resetpass">Reset Password</div>
+                    <div className="input_container">
+                        <label htmlFor="username" className="block">Password</label>
+                        <Password
+                            value={this.state.pass1}
+                            placeholder='Enter a password'
+                            onChange={(e) => this.setState({ pass1: e.target.value })} toggleMask
+                            required
+                        />
+                        <label htmlFor="username" className="block">Confirm Password</label>
+                        <Password
+                            value={this.state.pass2}
+                            placeholder='Confirm your password'
+                            onChange={(e) => this.setState({ pass2: e.target.value })} toggleMask
+                            required
+                        />
+                        <Button onClick={this.clickSubmitPass}>
+                            Submit
+                        </Button >
+                    </div>
+                </div> : null}
 
             </Fragment>
         )

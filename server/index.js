@@ -7,8 +7,11 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const login_router = require('./login');
 const register_router = require('./register');
+const forgot_router = require('./forgot_password');
+const security_router = require('./checkSecQuestion');
+const reset_router = require('./reset_password');
 
-const PORT = 4000;               // LOCAL PORT DEFINATIONS where the backend will be hosted..............
+const PORT = 4000;               // LOCAL PORT DEFINITIONS where the backend will be hosted..............
 
 const app = express();
 app.use(bodyParser.json({limit: '50mb'}));
@@ -34,3 +37,6 @@ app.use(function(request, response, next) {
 
 app.use('/login', login_router); //Login services 
 app.use('/register', register_router); // Register services
+app.use('/forgot_password', forgot_router);
+app.use('/checkSecQuestion', security_router);
+app.use('/reset_password', reset_router);
