@@ -83,7 +83,7 @@ export default class login extends Component {
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
                         <span id="no_account">
-                            <a href="url">No account? Sign up </a>
+                            <a href="register">No account? Sign up </a>
                         </span>
                     </div>
                     <h1 id="sign_in">Sign in </h1>
