@@ -6,7 +6,7 @@ const pool = require('./connection/connectPSQL')
 //http://localhost:4000/login/api/get_userid
 login_router.post('/api/get_userid', function (req, res) {
     var user_data = req.body;
-    console.log(user_data)
+    console.log(user_data);
     var _username = user_data._username;
     var _password = user_data._password;
     //Validation code
@@ -22,8 +22,8 @@ login_router.post('/api/get_userid', function (req, res) {
         db.query(sql_query,(err, table) => {
             done();
             console.log("Here Users: " + table.rowCount);
-            if(table.rowCount === 0){
-                return res.status(404).send({msg:"User not Available in DB"}); // user not available
+            if(table.rowCount == 0){
+                return res.status(405).send({msg:"User not Available in DB"}); // user not available
             }
             else{
                 var backend_pass = '';
