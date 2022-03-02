@@ -89,7 +89,51 @@ export default class register extends Component {
             return;
         }
 
+
+        var data = {
+            _username: this.state.username,
+            _email: this.state.email,
+            _firstname: this.state.firstname,
+            _lastname: this.state.lastname,
+            _password: this.state.password,
+            _securityQuestion: this.state.securityQuestion.name,
+            _securityCode: this.state.securityQuestion.code,            
+            _securityAnswer: this.state.securityAnswer
+        };
+        console.log(data);
+
+        this.verifyRegistration(data);
     }
+
+    verifyRegistration(data) {
+        console.log('Verifying user input');
+        var request = new Request('http://localhost:4000/register/api/create_userid', {
+            method: 'POST',
+            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(data)
+        });
+        var that = this;
+        fetch(request)
+            .then(function (response) {
+                if (response.status === 400) throw new Error('BAD Request');
+                else if (response.status === 406) throw new Error('Wrong answer to security question');
+                else if (response.status === 404) throw new Error('Not found');
+
+                response.json().then(function (data) {
+                    that.showSuccess('Successfully registered');
+                });
+            })
+            .catch(function (err) {
+                console.log(err.message);
+                that.showError(err.message);
+            });
+        }
+
+
+
+
+
+
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }

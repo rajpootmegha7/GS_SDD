@@ -7,20 +7,21 @@ const pool = require('./connection/connectPSQL');
 register_router.post('/api/create_userid', function (req, res) {
     
     var user_data = req.body;
-    // console.log(user_data)
+    console.log(user_data)
 
     var _username = user_data._username;
     var _email = user_data._email;
     var _firstname = user_data._firstname;
     var _lastname = user_data._lastname;
     var _password = user_data._password;
-    var _securityquestion = user_data._securityquestion;
-    var _securityquestioncode = user_data._securityquestioncode;
+    var _securityquestion = user_data._securityQuestion;
+    var _securityquestioncode = user_data._securityCode;
 
-    var _securityanswer = user_data._securityanswer;
-    var _country = user_data._country;
+    var _securityanswer = user_data._securityAnswer;
+    //var _country = user_data._country;
 
     if(!_username){
+        console.log("Username is missing");
         return res.status(406).send({text:"Username is missing"});
     }
 
@@ -38,11 +39,13 @@ register_router.post('/api/create_userid', function (req, res) {
             // console.log("Here Users: " + table.rowCount);
             // Username not taken
             if(!_password || !_email || !_firstname || !_lastname 
-                || !_securityquestion || !_securityquestioncode
-                || !_securityanswer || !_country){
+                || !_securityquestion || !_securityanswer) {
+                //|| !_country || !_securityquestioncode) {
+                    console.log("user info missing");
                     return res.status(406).send({text:"User info missing"});
             }
             else if(table.rowCount > 0){ 
+                console.log("Username is taken");
                 return res.status(406).send({text:"Username is taken"});
             }
             else{
@@ -51,7 +54,7 @@ register_router.post('/api/create_userid', function (req, res) {
                     'firstname, lastname, user_password, security_question, security_questi' +
                     'on_code , security_answer, country) VALUES (\'%s\', \'%s\', \'%s\', \'%s\',' + 
                     '\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');', _username, _email, _firstname, _lastname
-                     , _password, _securityquestion, _securityquestioncode, _securityanswer, _country);
+                     , _password, _securityquestion, _securityquestioncode, _securityanswer);//, _country);
                 console.log(insert_query);
                 db.query(insert_query,(err, table) => {});
                 return res.status(200).send({text:"Profile Successfully Created"});
