@@ -8,7 +8,7 @@ register_router.post('/api/create_userid', function (req, res) {
     
     var user_data = req.body;
     // console.log(user_data)
-    
+
     var _username = user_data._username;
     var _email = user_data._email;
     var _firstname = user_data._firstname;
@@ -16,6 +16,7 @@ register_router.post('/api/create_userid', function (req, res) {
     var _password = user_data._password;
     var _securityquestion = user_data._securityquestion;
     var _securityquestioncode = user_data._securityquestioncode;
+
     var _securityanswer = user_data._securityanswer;
     var _country = user_data._country;
 
