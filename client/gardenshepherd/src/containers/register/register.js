@@ -98,10 +98,11 @@ export default class register extends Component {
             _password: this.state.password,
             _securityQuestion: this.state.securityQuestion.name,
             _securityCode: this.state.securityQuestion.code,            
-            _securityAnswer: this.state.securityAnswer
+            _securityAnswer: this.state.securityAnswer,
+            _selectedCountry: this.state.selectedCountries
         };
         console.log(data);
-
+        
         this.verifyRegistration(data);
     }
 
@@ -112,6 +113,7 @@ export default class register extends Component {
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
         });
+        
         var that = this;
         fetch(request)
             .then(function (response) {
@@ -121,6 +123,7 @@ export default class register extends Component {
 
                 response.json().then(function (data) {
                     that.showSuccess('Successfully registered');
+                    that.props.history.push("/Login");
                 });
             })
             .catch(function (err) {
@@ -176,7 +179,7 @@ export default class register extends Component {
                         <div className="container_welcome">
                             <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
                             <span id="no_account">
-                                <a onClick={this.onClickNavigateRegister}>Have an account? Sign in </a>
+                                <a href='/Login'>Have an account? Sign in </a>
                             </span>
                         </div>
                         <h1 id="sign_up">Sign up </h1>

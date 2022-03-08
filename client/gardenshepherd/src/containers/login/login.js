@@ -14,7 +14,7 @@ export default class login extends Component {
         super(props)
 
         this.state = {
-            username: 'Megha',
+            username: '',
             password: ''
         };
         this.clickSubmit = this.clickSubmit.bind(this);
@@ -61,7 +61,7 @@ export default class login extends Component {
                     localStorage.setItem('isLogged', 'true');
 
                     that.showSuccess('Sucessfully Logged In.');
-                    // that.props.history.push('/GS/dashboard');
+                    that.props.history.push('/gs/dashboard');
                 });
             })
             .catch(function (err) {
@@ -83,19 +83,27 @@ export default class login extends Component {
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
                         <span id="no_account">
-                            <a href="register">No account? Sign up </a>
+                            <a href="/Register">No account? Sign up </a>
                         </span>
                     </div>
                     <h1 id="sign_in">Sign in </h1>
-                    <div className="username">
-                        <p id='label_text'>Enter Your username</p>
-                        <span className="p-float-label">
-                            <InputText id="username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
-                            <label htmlFor="username">Username</label>
+                    <span className="p-float-label">
+                    <p id='label_text'>Enter your Username</p>   
+                            <InputText
+                                id="form_input"
+                                placeholder='Username'
+                                value={this.state.username}
+                                onChange={(e) => this.setState({ username: e.target.value })}
+                                required
+                            />
                         </span>
-                    </div>
                     <p id='label_text'>Enter Your Password</p>
-                    <Password value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} toggleMask />
+                    <Password 
+                        value={this.state.password}  
+                        placeholder='Password'
+                        onChange={(e) => this.setState({ password: e.target.value })} 
+                        toggleMask 
+                        required/>
                     <span id="forgot_password">
                         <a href="/Forgot-Password"> Forgot Password </a>
                     </span>

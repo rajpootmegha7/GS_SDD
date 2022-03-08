@@ -16,9 +16,8 @@ register_router.post('/api/create_userid', function (req, res) {
     var _password = user_data._password;
     var _securityquestion = user_data._securityQuestion;
     var _securityquestioncode = user_data._securityCode;
-
-    var _securityanswer = user_data._securityAnswer;
-    //var _country = user_data._country;
+   var _securityanswer = user_data._securityAnswer;
+    var _selectedcountry = user_data._selectedCountry.name;
 
     if(!_username){
         console.log("Username is missing");
@@ -54,7 +53,7 @@ register_router.post('/api/create_userid', function (req, res) {
                     'firstname, lastname, user_password, security_question, security_questi' +
                     'on_code , security_answer, country) VALUES (\'%s\', \'%s\', \'%s\', \'%s\',' + 
                     '\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');', _username, _email, _firstname, _lastname
-                     , _password, _securityquestion, _securityquestioncode, _securityanswer);//, _country);
+                     , _password, _securityquestion, _securityquestioncode, _securityanswer,_selectedcountry);
                 console.log(insert_query);
                 db.query(insert_query,(err, table) => {});
                 return res.status(200).send({text:"Profile Successfully Created"});

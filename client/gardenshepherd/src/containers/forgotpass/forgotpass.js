@@ -16,10 +16,10 @@ export default class forgotpass extends Component {
         this.state = {
             showUsername: true,
             showUsernameButton: true,
-            showSecurity: false,
+            showSecurity: false ,
             showResetPass: false,
             username: '',
-            securityQuestion: '',
+            securityQuestion: 'What is your first pet name?',
             securityAnswer: '',
             pass1: '',
             pass2: ''
