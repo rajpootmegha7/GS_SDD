@@ -83,7 +83,7 @@ export default class login extends Component {
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
                         <span id="no_account">
-                            <a href="/Register">No account? Sign up </a>
+                            <a className='l-btn' href="/Register">No account? Sign up </a>
                         </span>
                     </div>
                     <h1 id="sign_in">Sign in </h1>
@@ -105,7 +105,7 @@ export default class login extends Component {
                         toggleMask 
                         required/>
                     <span id="forgot_password">
-                        <a href="/Forgot-Password"> Forgot Password </a>
+                        <a className='l-btn' href="/Forgot-Password"> Forgot Password </a>
                     </span>
 
                     <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit} />

@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useMemo } from 'react'
+import React, { Component, Fragment } from 'react'
 import './style.css'
 import countryList from 'react-select-country-list'
 
@@ -132,11 +132,6 @@ export default class register extends Component {
             });
         }
 
-
-
-
-
-
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
@@ -151,22 +146,6 @@ export default class register extends Component {
             var row = { name: element.label, code: element.value }
             this.countrylist.push(row);
         });
-
-
-        // var countries_link = "https://api.first.org/data/v1/countries";
-        // fetch(countries_link)
-        //     .then((res)=>{
-        //         res.json().then((data)=>{
-        //             data.tbl.forEach(element => {
-        //                 // this.zone.push({name: element.country});
-        //                 console.log(element);
-        //             });
-
-        //         })
-        //     })
-        //     .catch((err)=>{
-        //         console.log(err);
-        //     })
     }
 
     render() {
@@ -179,7 +158,7 @@ export default class register extends Component {
                         <div className="container_welcome">
                             <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
                             <span id="no_account">
-                                <a href='/Login'>Have an account? Sign in </a>
+                                <a className='l-btn' href='/Login'>Have an account? Sign in </a>
                             </span>
                         </div>
                         <h1 id="sign_up">Sign up </h1>

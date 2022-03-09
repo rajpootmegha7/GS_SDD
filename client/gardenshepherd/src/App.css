@@ -3,5 +3,8 @@
 *{
     font-family: Poppins;
     font-size: 18px;
-
+}
+a{
+    text-decoration: none;
+    color: black;
 }

@@ -90,7 +90,7 @@
     width: 100%;
 }
 
-a{
+.l-btn{
     text-decoration: none;
     color: grey;
     font-size: 14px;
@@ -99,7 +99,7 @@ a{
     border: 1px solid;
     padding: 1px 8px;
 }
-a:hover{
+.l-btn:hover{
   color: white;
   background-color: grey;
 }
