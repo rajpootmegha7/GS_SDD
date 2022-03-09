@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import Header from '../../components/Header/Header'
+import './style.css'
+
+
 
 export default class dashboard extends Component {
     render() {
         return (
             <div>
-                <h1>Dashboard</h1>
+                <Header pagename={'dashboard'}/>
+                <div className='dashboard_container'>
+                    TEXT
+                </div>
+
             </div>
         )
     }
 }
+

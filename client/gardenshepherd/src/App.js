@@ -6,6 +6,8 @@ import login from './containers/login/login';
 import forgot from './containers/forgotpass/forgotpass';
 import register from './containers/register/register';
 import dashboard from './containers/dashboard/dashboard';
+import planner from './containers/planner/planner';
+
 
 
 
@@ -22,6 +24,7 @@ function App() {
           <Route path="/Forgot-Password" exact component={forgot} />
           <Route path="/Register" exact component={register} />
           <Route path='/gs/dashboard' exact component={dashboard} />
+          <Route path='/gs/planner' exact component={planner} />
           {/* <Route path='/my-liquorstore/questions' exact component={Questions} /> */}
           {/* <Route path='/my-liquorstore/saved reference' exact component={UserReference} /> */}
         </Switch>
