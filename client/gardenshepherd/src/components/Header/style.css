@@ -6,6 +6,9 @@
     align-items: center;
     /* background-color: lavender; */
 }
+.logo{
+    z-index: -1;
+}
 
 
 .menu-cont {
