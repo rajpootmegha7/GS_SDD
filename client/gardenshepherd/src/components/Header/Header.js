@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from "react-router-dom";
-import logo_refernce from '../../images/Logo.png'
+import logo_refernce from '../../images/logo2.png'
 
 import './style.css'
 
@@ -36,7 +36,7 @@ export default class Header extends Component {
     render() {
         return (
             <div className='header-cont'>
-                <div className='logo'><img src={logo_refernce} alt="Girl in a jacket" width="150" height="150" /></div>
+                <div className='logo'><img src={logo_refernce} alt="Girl in a jacket" width="150" height="70px" /></div>
                 <div className='menu-cont'>
                     <Link id='0-btn' to='/gs/dashboard'>Plant Enclyopedia</Link>
                     <Link id='1-btn' to='/gs/planner' >Planner</Link>
