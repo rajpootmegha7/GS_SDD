@@ -10,6 +10,7 @@ const register_router = require('./register');
 const forgot_router = require('./forgot_password');
 const security_router = require('./checkSecQuestion');
 const reset_router = require('./reset_password');
+const search_router = require('./search');
 
 const PORT = 4000;               // LOCAL PORT DEFINITIONS where the backend will be hosted..............
 
@@ -40,3 +41,4 @@ app.use('/register', register_router); // Register services
 app.use('/forgot_password', forgot_router);
 app.use('/checkSecQuestion', security_router);
 app.use('/reset_password', reset_router);
+app.use('/search', search_router);
