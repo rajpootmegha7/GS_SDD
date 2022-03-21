@@ -60,3 +60,11 @@
     text-align: center;
     margin-top: 10px;
 }
+.security_question
+{
+    margin-bottom: 3px;
+}
+#password {
+    width: fit-content;
+    margin: 5px 0px;
+}

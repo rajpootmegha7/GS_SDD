@@ -182,10 +182,12 @@ export default class forgotpass extends Component {
                 { this.state.showUsername ? <div className="forgotpass_container">
                     <div className="forgot">Forgot Password?</div>
                     <div className="input_container">
-                        <label htmlFor="username" className="block">Username</label>
+                        {/*<label htmlFor="username" className="block">Username</label>*/}
                         <InputText  id="username" aria-describedby="username-help"
-                                    onChange={(e) => this.setState({ username: e.target.value })}/>
-                        <small id="username-help" className="block">Enter your username above.</small>
+                                    placeholder='Enter username' required
+                                    onChange={(e) => this.setState({ username: e.target.value })}
+                        />
+                        {/*<small id="username-help" className="block">Enter your username above.</small>*/}
                         { this.state.showUsernameButton ? <div>
                             <Button onClick={this.clickSubmitUsername}>
                                 Submit
@@ -193,10 +195,12 @@ export default class forgotpass extends Component {
                         </div> : null}
                     </div>
                     { this.state.showSecurity ? <div className="security_container" visible="false">
-                        <label htmlFor="username" className="block">{this.state.securityQuestion}</label>
-                        <InputText  id="username" aria-describedby="username-help"
-                                    onChange={(e) => this.setState({ securityAnswer: e.target.value })}/>
-                        <small id="username-help" className="block">Enter the answer above.</small>
+                        {/*<label htmlFor="username" className="block">{this.state.securityQuestion}</label>*/}
+                        <div className="security_question">{this.state.securityQuestion}</div>
+                        <InputText  id="username" placeholder='Answer' required
+                                    onChange={(e) => this.setState({ securityAnswer: e.target.value })}
+                        />
+                        {/*<small id="username-help" className="block">Enter the answer above.</small>*/}
                         <Button onClick={this.clickSubmitSecurity}>
                             Submit
                         </Button >
@@ -205,15 +209,18 @@ export default class forgotpass extends Component {
                 { this.state.showResetPass ? <div className="resetpass_container">
                     <div className="resetpass">Reset Password</div>
                     <div className="input_container">
-                        <label htmlFor="username" className="block">Password</label>
+                        {/*<label htmlFor="password" className="block">Password</label>*/}
                         <Password
+                            id="password"
                             value={this.state.pass1}
                             placeholder='Enter a password'
                             onChange={(e) => this.setState({ pass1: e.target.value })} toggleMask
                             required
                         />
-                        <label htmlFor="username" className="block">Confirm Password</label>
+                        <div className="break"></div>
+                        {/*<label htmlFor="password" className="block">Confirm Password</label>*/}
                         <Password
+                            id="password"
                             value={this.state.pass2}
                             placeholder='Confirm your password'
                             onChange={(e) => this.setState({ pass2: e.target.value })} toggleMask
