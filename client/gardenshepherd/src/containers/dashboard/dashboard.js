@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import './style.css'
 import { Parallax } from 'react-parallax';
 import image_p1 from '../../images/leaf.jpg'
@@ -105,7 +106,7 @@ rowPlantDescription=(rowData)=>{
                     
                     
 
-                   
+                    <Footer />
                 </div>
 
             </div>

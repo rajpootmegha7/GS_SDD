@@ -7,6 +7,7 @@ import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
+import Footer from '../../components/Footer/Footer'
 
 
 // let options = useMemo(() => countryList().getData(), []);
@@ -233,6 +234,7 @@ export default class register extends Component {
 
                         <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                     </div>
+                    <Footer />
                 </Fragment>
 
 
