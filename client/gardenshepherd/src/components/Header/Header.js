@@ -40,7 +40,7 @@ export default class Header extends Component {
                 <div className='menu-cont'>
                     <Link id='0-btn' to='/gs/dashboard'>Plant Enclyopedia</Link>
                     <Link id='1-btn' to='/gs/planner' >Planner</Link>
-                    <Link id='2-btn' to='/gs/dashboard'> About us</Link>
+                    <Link id='2-btn' to='/gs/about-us'>About us</Link>
                     <Link to='logout'>Logout</Link>
                 </div>
                 

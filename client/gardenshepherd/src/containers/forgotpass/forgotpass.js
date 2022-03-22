@@ -5,6 +5,7 @@ import './style.css'
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';
+import Footer from '../../components/Footer/Footer'
 import Button from '../../components/Button';
 
 
@@ -232,6 +233,7 @@ export default class forgotpass extends Component {
                     </div>
                 </div> : null}
 
+                <Footer />
             </Fragment>
         )
     }

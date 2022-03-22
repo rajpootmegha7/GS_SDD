@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
+import Footer from '../../components/Footer/Footer'
 
 
 export default class login extends Component {
@@ -110,6 +111,7 @@ export default class login extends Component {
 
                     <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit} />
                 </div>
+                <Footer />
             </Fragment>
 
         )
