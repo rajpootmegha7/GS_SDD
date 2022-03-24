@@ -66,8 +66,8 @@ constructor(props){
 
 
     this._plantdata = [
-        {code:1, desc: "With its stately upright foliage that almost looks artificial, the snake plant (also called mother-in-law’s tongue) adds great architectural form to a room and complements all styles of decor.", name: 'Snake Plant', image:'https://www.almanac.com/sites/default/files/users/The%20Editors/snake_plant_sansevieria_trifasciata_laurentii_mokkie-wc_full_width.jpg'},
-        {code:2, desc: "Whether you choose upright or trailing/climbing types, philodendrons are one of the easiest houseplants you can possibly grow. You can train them up a trellis or simply leave them to their own devices; philodendrons will survive no matter what.", name: 'Philodendron', image:'https://cdn.shopify.com/s/files/1/0812/7647/products/Screenshot2020-04-2717.05.28.png?v=1625306899'}]
+        {code:1, desc: "With its stately upright foliage that almost looks artificial, the snake plant (also called mother-in-law’s tongue) adds great architectural form to a room and complements all styles of decor.", name: 'Snake Plant', image:'https://www.almanac.com/sites/default/files/users/The%20Editors/snake_plant_sansevieria_trifasciata_laurentii_mokkie-wc_full_width.jpg',plant_spacing: 2, water_schedule:3},
+        {code:2, desc: "Whether you choose upright or trailing/climbing types, philodendrons are one of the easiest houseplants you can possibly grow. You can train them up a trellis or simply leave them to their own devices; philodendrons will survive no matter what.", name: 'Philodendron', image:'https://cdn.shopify.com/s/files/1/0812/7647/products/Screenshot2020-04-2717.05.28.png?v=1625306899',plant_spacing: 4, water_schedule:5}]
 }
 componentDidMount(){
     this.setState({plantData: this._plantdata});
@@ -116,11 +116,14 @@ clickSearchPlant=(event)=>{
             response.json().then(function (res) {
 
                 res.data.forEach(row =>{
-     
+                    console.log(row)
                     that._plantInfo.push({code: row.plant_id, 
                         desc: row.description,
                         name: row.plant_name,
-                        image: row.image.data
+                        image: row.image,
+                        plant_spacing: row.plant_spacing,
+                        water_schedule: row.water_schedule,
+
                     })
                 })
                 that.setState({plantData: that._plantInfo})
@@ -149,6 +152,11 @@ rowPlantDescription=(rowData)=>{
     <div className='plant_card'>
         <div className='plant_name'>{rowData.name}</div>
         <p className='plant_desc'>{rowData.desc}</p>
+        <div className='plant_req'>
+            <div className='plant_label'>plant spacing {rowData.plant_spacing} ft</div>
+            <div className='plant_label'>water schedule {rowData.water_schedule} days/week</div>
+        </div>
+        
     </div>
     );
 }

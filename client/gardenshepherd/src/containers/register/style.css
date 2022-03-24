@@ -1,14 +1,14 @@
-#image_container{
+/* #image_container{
     background: no-repeat;
     background-image: url(../../images/wallpaper.jpeg);
     height: 50em;
     width: 100%;
   }
-  
+   */
   #register_container {
     position: absolute;
     width: 539px;
-    height: 741px;
+    /* height: 741px; */
     left: 790px;
     top: 104px;
     padding: 20px;
@@ -66,7 +66,7 @@
       flex-flow: row-reverse;
     }
   
-  #button_submit{
+  #button_submit_1{
       /* background-color: #779341;
       border-color:#779341 ; */
       margin-top: 20px;
