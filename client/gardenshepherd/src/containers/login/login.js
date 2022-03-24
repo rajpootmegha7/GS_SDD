@@ -109,7 +109,7 @@ export default class login extends Component {
                         <a className='l-btn' href="/Forgot-Password"> Forgot Password </a>
                     </span>
 
-                    <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit} />
+                    <Button label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit} />
                 </div>
                 <Footer />
             </Fragment>

@@ -1,9 +1,8 @@
-#image_container{
-  background: no-repeat;
+#image_container {
   background-image: url(../../images/wallpaper.jpeg);
   height: 50em;
   width: 100%;
-
+  background-color: white;
 }
 #login_container {
   position: absolute;
