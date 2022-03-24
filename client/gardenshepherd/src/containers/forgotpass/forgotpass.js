@@ -136,6 +136,7 @@ export default class forgotpass extends Component {
             return;
         }
         this.updatePass(data);
+        
     }
 
     updatePass(data) {
@@ -153,6 +154,7 @@ export default class forgotpass extends Component {
                 else if (response.status === 404) throw new Error('Not found');
                 response.json().then(function (data) {
                     console.log("Success");
+                    that.props.history.push("/Login");
                 });
         })
         .catch(function (err) {
