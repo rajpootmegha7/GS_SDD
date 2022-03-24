@@ -154,7 +154,7 @@ export default class register extends Component {
             <div>
                 <Fragment>
                     <Toast ref={(el) => this.toast = el} />
-                    <div id='image_container'></div>
+                    <div className='r_image_container'></div>
                     <div id="register_container">
                         <div className="container_welcome">
                             <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
