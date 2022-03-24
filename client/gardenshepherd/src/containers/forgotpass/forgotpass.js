@@ -180,7 +180,7 @@ export default class forgotpass extends Component {
         return (
             <Fragment>
                 <Toast ref={(el) => this.toast = el} />
-                <div className="image_container"></div>
+                <div className="fp_image_container"></div>
 
                 { this.state.showUsername ? <div className="forgotpass_container">
                     <div className="forgot">Forgot Password?</div>

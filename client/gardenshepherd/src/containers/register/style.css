@@ -1,21 +1,32 @@
-/* #image_container{
-    background: no-repeat;
-    background-image: url(../../images/wallpaper.jpeg);
-    height: 50em;
-    width: 100%;
+.r_image_container{
+  background: url(../../images/wallpaper.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: right;
   }
-   */
   #register_container {
     position: absolute;
-    width: 539px;
-    /* height: 741px; */
-    left: 790px;
-    top: 104px;
+    margin-right: 15%;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+    height: fit-content;
+    width: 30%;
+    min-width: 500px;
     padding: 20px;
     border: 1px solid lightcyan;
     border-radius: 15px;
     box-shadow: 9px 9px 7px 1px rgb(144 238 144 / 40%);
-    }
+  
+  }
   
     #sign_up {
       font-family: 'Lobster', cursive;
@@ -109,13 +120,14 @@
   }
 
   .p-dropdown{
-    width: 493px;
+    /* width: 493px;
+    height: 50.5px; */
+    width: auto;
+    height: auto;
     margin: 4px;
-    height: 50.5px;
 
   }
 
   ::placeholder { /* Most modern browsers support this now. */
     color: lightcoral;
  }
-  

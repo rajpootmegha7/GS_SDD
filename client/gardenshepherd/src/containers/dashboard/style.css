@@ -50,17 +50,17 @@
     height: 7em;
 }
 
-.p-dropdown {
+/* .d-p-dropdown {
     width: 320px;
 }
 
-.p-inputtext {
+.d-p-inputtext {
     width: 489px;
-}
+} */
 
 #button_submit{
-    position: absolute;
-    margin-left: 45%;
+    position: relative;
+    /* margin-left: 45%; */
     border-radius: 5px;
     background-color: darkslategrey;
     border: 0px solid darkslategrey;

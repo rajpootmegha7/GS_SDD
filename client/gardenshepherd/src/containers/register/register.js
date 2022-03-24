@@ -154,85 +154,88 @@ export default class register extends Component {
             <div>
                 <Fragment>
                     <Toast ref={(el) => this.toast = el} />
-                    <div id='image_container'></div>
-                    <div id="register_container">
-                        <div className="container_welcome">
-                            <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
-                            <span id="no_account">
-                                <a className='l-btn' href='/Login'>Have an account? Sign in </a>
+                    <div className="container">
+                        <div className='r_image_container'></div>
+                        <div id="register_container">
+                            <div className="container_welcome">
+                                <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
+                                <span id="no_account">
+                                    <a className='l-btn' href='/Login'>Have an account? Sign in </a>
+                                </span>
+                            </div>
+                            <h1 id="sign_up">Sign up </h1>
+                            {/* <p id='label_text'>Enter Your username or email address</p> */}
+                            <span className="p-float-label">
+                                <InputText
+                                    className="form_input"
+                                    placeholder='Enter your username'
+                                    value={this.state.username}
+                                    onChange={(e) => this.setState({ username: e.target.value })}
+                                    required
+                                />
                             </span>
-                        </div>
-                        <h1 id="sign_up">Sign up </h1>
-                        {/* <p id='label_text'>Enter Your username or email address</p> */}
-                        <span className="p-float-label">
-                            <InputText
-                                id="form_input"
-                                placeholder='Enter your username'
-                                value={this.state.username}
-                                onChange={(e) => this.setState({ username: e.target.value })}
+                            <span className="p-float-label">
+                                <InputText
+                                    className="form_input"
+                                    placeholder='Enter your email address'
+                                    value={this.state.email}
+                                    onChange={(e) => this.setState({ email: e.target.value })}
+                                    required
+                                />
+                            </span>
+                            <div id='formname'>
+                                <InputText className="form_input"
+                                    placeholder='Firstname'
+                                    value={this.state.firstname}
+                                    onChange={(e) => this.setState({ firstname: e.target.value })}
+                                    required />
+                            </div>
+                            <div id="formname1">
+                                <InputText
+                                    id="form_input"
+                                    placeholder='Lastname'
+                                    value={this.state.lastname}
+                                    onChange={(e) => this.setState({ lastname: e.target.value })}
+                                    required />
+                            </div>
+                            <Password
+                                value={this.state.password}
+                                placeholder='Enter a password'
+                                onChange={(e) => this.setState({ password: e.target.value })} toggleMask
                                 required
                             />
-                        </span>
-                        <span className="p-float-label">
-                            <InputText
-                                id="form_input"
-                                placeholder='Enter your email address'
-                                value={this.state.email}
-                                onChange={(e) => this.setState({ email: e.target.value })}
+                            <Password
+                                value={this.state.password2}
+                                placeholder='Confirm your password'
+                                onChange={(e) => this.setState({ password2: e.target.value })} toggleMask
                                 required
                             />
-                        </span>
-                        <div id='formname'>
-                            <InputText id="form_input"
-                                placeholder='Firstname'
-                                value={this.state.firstname}
-                                onChange={(e) => this.setState({ firstname: e.target.value })}
-                                required />
-                            <InputText
-                                id="form_input"
-                                placeholder='Lastname'
-                                value={this.state.lastname}
-                                onChange={(e) => this.setState({ lastname: e.target.value })}
-                                required />
+                            <Dropdown
+                                value={this.state.securityQuestion}
+                                placeholder='Choose a security question'
+                                options={this.questions}
+                                onChange={this.onSecurityQuestionChange} optionLabel="name"
+                                required
+                            />
+                            <InputText className="form_input"
+                                placeholder='Your Answer'
+                                value={this.state.securityAnswer}
+                                onChange={(e) => this.setState({ securityAnswer: e.target.value })} />
 
+                            {/* <span className="p-float-label"> */}
+                            <Dropdown
+                                value={this.state.selectedCountries}
+                                placeholder='Country'
+                                options={this.countrylist}
+                                onChange={(e) => this.setState({ selectedCountries: e.value })} filter optionLabel="name"
+                                itemTemplate={this.countryTemplate} style={{ width: '15rem' }} listStyle={{ maxHeight: '230px' }} />
+
+                            {/* </span> */}
+
+
+
+                            <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                         </div>
-                        <Password
-                            value={this.state.password}
-                            placeholder='Enter a password'
-                            onChange={(e) => this.setState({ password: e.target.value })} toggleMask
-                            required
-                        />
-                        <Password
-                            value={this.state.password2}
-                            placeholder='Confirm your password'
-                            onChange={(e) => this.setState({ password2: e.target.value })} toggleMask
-                            required
-                        />
-                        <Dropdown
-                            value={this.state.securityQuestion}
-                            placeholder='Choose a security question'
-                            options={this.questions}
-                            onChange={this.onSecurityQuestionChange} optionLabel="name"
-                            required
-                        />
-                        <InputText id="form_input"
-                            placeholder='Your Answer'
-                            value={this.state.securityAnswer}
-                            onChange={(e) => this.setState({ securityAnswer: e.target.value })} />
-
-                        {/* <span className="p-float-label"> */}
-                        <Dropdown
-                            value={this.state.selectedCountries}
-                            placeholder='Country'
-                            options={this.countrylist}
-                            onChange={(e) => this.setState({ selectedCountries: e.value })} filter optionLabel="name"
-                            itemTemplate={this.countryTemplate} style={{ width: '15rem' }} listStyle={{ maxHeight: '230px' }} />
-
-                        {/* </span> */}
-
-
-
-                        <Button  label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                     </div>
                     <Footer />
                 </Fragment>
