@@ -232,7 +232,7 @@ export default class register extends Component {
 
 
 
-                        <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
+                        <Button  label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                     </div>
                     <Footer />
                 </Fragment>
