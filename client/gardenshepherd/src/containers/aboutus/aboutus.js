@@ -3,6 +3,11 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import img1 from '../../images/leaf.jpg'
 import img2 from '../../images/mint.jpeg'
+import otto_pic from '../../images/otto.png'
+import danice_pic from '../../images/danice.jpg'
+import tyler_pic from '../../images/tyler.png'
+//import otto_pic from '../../images/otto.png'
+import megha_pic from '../../images/megha.jpg'
 import './style.css'
 import { Parallax } from 'react-parallax';
 
@@ -26,16 +31,23 @@ export default class aboutus extends Component {
                             <div className="page_title">
                                 About us
                             </div>
+                            <div className="page_title_body">
+                                I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
+                                I found planning a garden to be difficult and wanted to create a tool to help myself and others.
+                                By releasing Garden Shepherd as a web app, I hope to help more people start growing some of their own food.
+                            </div>
                         </div>
                     </div>
                 </Parallax>
                 <div className="person_container">
                     <div className="about_us_img">
-                        <img src={img1} alt="Otto" className="otto_pic" />
+                        <img src={otto_pic} alt="Otto" className="otto_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
                         <div>
-                            Otto is the project lead.
+                            I am a Computer Science undergrad working as a back-end developer and product owner for Garden Shepherd.
+                            In my free time, I like to play video games, doodle, and anxiously pace in circles.
+                            <p className="person_name">- Otto Daniels</p>
                         </div>
                     </div>
                 </div>
@@ -46,11 +58,16 @@ export default class aboutus extends Component {
                 <div className="person_container">
                     <div className="about_us_bio flex_center">
                         <div>
-                            Megha is a grad student.
+                            I am an ITWS grad student working as a front-end developer and project manager for Garden Shepherd.
+                            The reason why I choose to be part of this team is that I love plants and nature.
+                            I have my kitchen garden and like to spend time growing new plants.
+                            Apart from gardening, I also love to do yoga and painting, and sketching.
+                            This application will be a game-changer for all plant lovers who have busy schedules but love to do gardening as their hobby.
+                            <p className="person_name">- Megha Rajpoot</p>
                         </div>
                     </div>
                     <div className="about_us_img">
-                        <img src={img1} alt="Megha" className="megha_pic" />
+                        <img src={megha_pic} alt="Megha" className="megha_pic" />
                     </div>
                 </div>
 
@@ -59,11 +76,14 @@ export default class aboutus extends Component {
                 </Parallax>
                 <div className="person_container">
                     <div className="about_us_img">
-                        <img src={img1} alt="Danice" className="danice_pic" />
+                        <img src={danice_pic} alt="Danice" className="danice_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
                         <div>
-                            Danice works on the backend.
+                            Hi, I’m a Computer Science undergraduate working as a back-end developer for Garden Shepherd.
+                            I am a plant owner myself but have been primarily focused on indoor plants such as succulents and cacti.
+                            In my free time, I have hobbies such as art, video/tabletop games and reading.
+                            <p className="person_name">- Danice Pe Benito</p>
                         </div>
                     </div>
                 </div>
@@ -74,11 +94,14 @@ export default class aboutus extends Component {
                 <div className="person_container">
                     <div className="about_us_bio flex_center">
                         <div>
-                            Tyler also works on the backend.
+                            I am a CS undergraduate senior working as a back-end developer for Garden Shepherd.
+                            I currently don’t have any plants but I’d like some in the future so working on a project related to them is nice.
+                            In my free time I like to play video games, read books and watch anime.
+                            <p className="person_name">- Tyler Bejel</p>
                         </div>
                     </div>
                     <div className="about_us_img">
-                        <img src={img1} alt="Tyler" className="tyler_pic" />
+                        <img src={tyler_pic} alt="Tyler" className="tyler_pic" />
                     </div>
                 </div>
 
@@ -91,7 +114,10 @@ export default class aboutus extends Component {
                     </div>
                     <div className="about_us_bio flex_center">
                         <div>
-                            Nate works on the frontend.
+                            I am a graduating cs student currently working as a frontend developer for Garden Shepherd.
+                            I knew I wanted to work on this project as soon as I heard about it, as I grew up in a household full of plants, and would love to see an app that helps people get into gardening.
+                            My hobbies include archery, tutoring, and playing video games.
+                            <p className="person_name">- Nate Zink</p>
                         </div>
                     </div>
                 </div>
@@ -103,6 +129,3 @@ export default class aboutus extends Component {
 
 
 }
-
-// notes: make a footer, similarly to how she currently is implementing the header
-// add header to each page 
