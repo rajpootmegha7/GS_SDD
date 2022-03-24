@@ -26,16 +26,16 @@ export default class aboutus extends Component {
             <div className="about_us_container">
                 <Header pagename={'about'}/>
                 <Parallax bgImage={img1} strength={500}>
-                    <div className="parallax_container">
+                    <div className="first_parallax_container">
                         <div className="flex_center title_container">
                             <div className="page_title">
                                 About us
                             </div>
-                            <div className="page_title_body">
+                            {/*<div className="page_title_body">
                                 I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
                                 I found planning a garden to be difficult and wanted to create a tool to help myself and others.
                                 By releasing Garden Shepherd as a web app, I hope to help more people start growing some of their own food.
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </Parallax>
@@ -46,6 +46,9 @@ export default class aboutus extends Component {
                     <div className="about_us_bio flex_center">
                         <div>
                             I am a Computer Science undergrad working as a back-end developer and product owner for Garden Shepherd.
+                            I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
+                            I found planning a garden to be difficult and wanted to create a tool to help myself and others.
+                            By releasing Garden Shepherd as a web app, I hope to help more people start growing some of their own food.
                             In my free time, I like to play video games, doodle, and anxiously pace in circles.
                             <p className="person_name">- Otto Daniels</p>
                         </div>
@@ -114,7 +117,7 @@ export default class aboutus extends Component {
                     </div>
                     <div className="about_us_bio flex_center">
                         <div>
-                            I am a graduating cs student currently working as a frontend developer for Garden Shepherd.
+                            I am a graduating CS student currently working as a frontend developer for Garden Shepherd.
                             I knew I wanted to work on this project as soon as I heard about it, as I grew up in a household full of plants, and would love to see an app that helps people get into gardening.
                             My hobbies include archery, tutoring, and playing video games.
                             <p className="person_name">- Nate Zink</p>
