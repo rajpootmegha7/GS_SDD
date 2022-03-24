@@ -1,5 +1,8 @@
 .parallax_container {
-    height: 60vh;
+    height: 100vh;
+}
+.parallax_container {
+    height: 100vh;
 }
 .person_container {
     display: flex;
@@ -13,8 +16,6 @@
     position: relative;
     height: 48vh;
     flex: 0.6;
-    margin: 1vh 1vw;
-    overflow: hidden;
 }
 .about_us_img {
     position: relative;
@@ -64,7 +65,4 @@
     color: rgb(255, 255, 255);
     font-style: italic;
     text-shadow: -2px 2px 3px #000000
-}
-.person_name {
-    align-items: right;
 }
