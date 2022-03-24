@@ -3,6 +3,7 @@
   height: 50em;
   width: 100%;
   background-color: white;
+  background-repeat-x: no-repeat;
 }
 #login_container {
   position: absolute;
@@ -65,9 +66,7 @@
     flex-flow: row-reverse;
   }
 
-#button_submit{
-    /* background-color: #779341;
-    border-color:#779341 ; */
+#login_id{
     margin-top: 20px;
     float:right;
     width: 9em;
