@@ -1,0 +1,10 @@
+.planner_desk{
+    height: auto;
+    width: 100%;
+    display: block;
+    padding: 15px;
+}
+.plant-list_menu{
+    float: right;
+    text-align: center;
+}

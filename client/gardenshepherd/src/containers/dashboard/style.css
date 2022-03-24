@@ -55,7 +55,7 @@
 }
 
 .p-inputtext {
-    width: 374px;
+    width: 489px;
 }
 
 #button_submit{
@@ -73,6 +73,25 @@
     color: darkslategray;
     border: 1px solid darkslategrey;
 }
+
+#button_default{
+    float: right;
+    border-radius: 20px;
+    height: 15px;
+    right: 5%;
+    background-color: unset;
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+}
+#button_default > .p-button-label{
+    font-weight: 100;
+}
+
+#button_default:hover{
+    background-color: cornflowerblue;
+    color: white;
+    border: 1px solid cornflowerblue;
+}
 .product-image{
     height: 285px;
     width: 426px;
@@ -89,4 +108,40 @@
     position: relative;
     font-size: 2em;
     /* font-family: 'Smooch Sans', sans-serif; */
+}
+
+.planner_btn{
+    float: right;
+    background-color: cornflowerblue;
+    color: white;
+    border-color: unset;
+    margin: 5px 0px;
+    margin-right: 2em;
+}
+
+.planner-link{
+    color: white;
+}
+
+.p-datatable .p-datatable-footer{
+    font-weight: unset;
+}
+
+.plant_req{
+    display: inline-flex;
+}
+.plant_label{
+    width: fit-content;
+    text-align: center;
+    border-radius: 25px;
+    padding: 3px 10px;
+    margin: 0px 15px;
+    background: dodgerblue;
+    color: white;
+}
+
+.plant_label:hover{
+    border: 1px solid dodgerblue;
+    background: white;
+    color: dodgerblue;
 }
