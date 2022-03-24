@@ -1,8 +1,9 @@
-#image_container{
-    background: no-repeat;
-    background-image: url(../../images/wallpaper.jpeg);
-    height: 50em;
-    width: 100%;
+.r_image_container{
+    background: url(../../images/wallpaper.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
   }
   
   #register_container {

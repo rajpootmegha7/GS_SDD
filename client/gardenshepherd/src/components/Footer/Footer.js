@@ -16,7 +16,7 @@ export default class Footer extends Component {
                     <h2>Resources</h2>
                     <div id="modules">
                         <h2>Resources</h2>
-                        <div class="module">
+                        {/*<div class="module">
                             <h3>Product</h3>
                             <ul>
                                 <li><a href="">Pricing</a></li>
@@ -24,7 +24,7 @@ export default class Footer extends Component {
                                 <li><a href="">Documentation</a></li>
                                 <li><a href="">Developers</a></li>
                             </ul>
-                        </div>
+                        </div>*/}
                         <div class="module">
                             <h3>Company</h3>
                             <ul>
@@ -35,7 +35,7 @@ export default class Footer extends Component {
                                 <li><a href="">Contact</a></li>
                             </ul>
                         </div>
-                        <div class="module">
+                        {/*<div class="module">
                             <h3>Contact</h3>
                             <ul>
                                 <li class="mail"><a href="">Support</a></li>
@@ -43,7 +43,7 @@ export default class Footer extends Component {
                                 <li class="twitter"><a href="">@company</a></li>
                                 <li class="facebook"><a href="">Company</a></li>
                             </ul>
-                        </div>
+                        </div>*/}
                         <div class="module">
                             <h3>Company</h3>
                             <p>Text area used for company description, address and company logo.</p>
@@ -55,9 +55,9 @@ export default class Footer extends Component {
                     </div>
                 </section>
                 <div id="signature" aria-hidden="true"></div>
-                <footer id="legal">
+                {/*<footer id="legal">
                     <p>&copy; 3000 by Company. All rights reserved. Please read the <a href="">Privacy Policy</a> and <a href="">Terms of Service</a>.</p>
-                </footer>
+                    </footer>*/}
             </div>
         )
     }

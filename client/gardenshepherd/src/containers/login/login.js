@@ -79,37 +79,39 @@ export default class login extends Component {
         return (
             <Fragment>
                 <Toast ref={(el) => this.toast = el} />
-                <div id='image_container'></div>
-                <div id="login_container">
-                    <div className="container_welcome">
-                        <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
-                        <span id="no_account">
-                            <a className='l-btn' href="/Register">No account? Sign up </a>
+                <div className="container">
+                    <div className='li_image_container'></div>
+                    <div id="login_container">
+                        <div className="container_welcome">
+                            <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
+                            <span id="no_account">
+                                <a className='l-btn' href="/Register">No account? Sign up </a>
+                            </span>
+                        </div>
+                        <h1 id="sign_in">Sign in </h1>
+                        <span className="p-float-label">
+                        <p id='label_text'>Enter your Username</p>   
+                                <InputText
+                                    id="form_input"
+                                    placeholder='Username'
+                                    value={this.state.username}
+                                    onChange={(e) => this.setState({ username: e.target.value })}
+                                    required
+                                />
+                            </span>
+                        <p id='label_text'>Enter Your Password</p>
+                        <Password 
+                            value={this.state.password}  
+                            placeholder='Password'
+                            onChange={(e) => this.setState({ password: e.target.value })} 
+                            toggleMask 
+                            required/>
+                        <span id="forgot_password">
+                            <a className='l-btn' href="/Forgot-Password"> Forgot Password </a>
                         </span>
-                    </div>
-                    <h1 id="sign_in">Sign in </h1>
-                    <span className="p-float-label">
-                    <p id='label_text'>Enter your Username</p>   
-                            <InputText
-                                id="form_input"
-                                placeholder='Username'
-                                value={this.state.username}
-                                onChange={(e) => this.setState({ username: e.target.value })}
-                                required
-                            />
-                        </span>
-                    <p id='label_text'>Enter Your Password</p>
-                    <Password 
-                        value={this.state.password}  
-                        placeholder='Password'
-                        onChange={(e) => this.setState({ password: e.target.value })} 
-                        toggleMask 
-                        required/>
-                    <span id="forgot_password">
-                        <a className='l-btn' href="/Forgot-Password"> Forgot Password </a>
-                    </span>
 
-                    <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.clickSubmit} />
+                        <Button label="Submit" className="l_button_submit p-button-outlined p-button-success" onClick={this.clickSubmit} />
+                    </div>
                 </div>
                 <Footer />
             </Fragment>
