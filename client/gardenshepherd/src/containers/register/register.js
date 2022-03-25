@@ -154,8 +154,8 @@ export default class register extends Component {
             <div>
                 <Fragment>
                     <Toast ref={(el) => this.toast = el} />
-                    <div className="container">
-                        <div className='r_image_container'></div>
+                    <div className="r_container">
+                        {/*<div className='r_image_container'></div>*/}
                         <div id="register_container">
                             <div className="container_welcome">
                                 <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
@@ -234,7 +234,7 @@ export default class register extends Component {
 
 
 
-                            <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
+                            <Button id="button_submit_1" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                         </div>
                     </div>
                     <Footer />
