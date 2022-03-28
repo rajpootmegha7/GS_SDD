@@ -23,6 +23,7 @@ export default class login extends Component {
         this.showError = this.showError.bind(this);
     }
 
+    // called when the user enters clicks the submit button
     clickSubmit(event) {
 
         event.preventDefault();
@@ -35,6 +36,7 @@ export default class login extends Component {
         this.verifyLogin(data);
     }
 
+    // popup messages to inform the user of the status of their login attempt
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
@@ -43,6 +45,7 @@ export default class login extends Component {
     }
 
     verifyLogin(data) {
+        // this method makes a request to the backend, specified by the address below, with the information that the user provided
         console.log('In Submit Login');
         var request = new Request('http://localhost:4000/login/api/get_userid', {
             method: 'POST',
@@ -53,6 +56,7 @@ export default class login extends Component {
         var that = this;
         fetch(request)
             .then(function (response) {
+                // check the response of the backend
                 if (response.status === 400) throw new Error('BAD Request');
                 else if (response.status === 405) throw new Error('User not Available in DB');
                 else if (response.status === 406) throw new Error('Incorrect Password');
@@ -62,6 +66,7 @@ export default class login extends Component {
                     localStorage.setItem('isLogged', 'true');
 
                     that.showSuccess('Sucessfully Logged In.');
+                    // now that the user is logged in, we want them to be able to access certain parts of the website they could not access before
                     that.props.history.push('/gs/dashboard');
                 });
             })

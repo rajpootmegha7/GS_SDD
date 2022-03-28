@@ -14,7 +14,9 @@
     border-radius: 8px;
     outline: 2px solid #cecece;
     height: fit-content;
+    min-height: 35vh;
     width: fit-content;
+    min-width: 30vw;
 }
 .forgot {
     text-align: center;
@@ -55,7 +57,9 @@
     border-radius: 8px;
     outline: 2px solid #cecece;
     height: fit-content;
+    min-height: 35vh;
     width: fit-content;
+    min-width: 30vw;
 }
 .resetpass {
     text-align: center;
@@ -65,7 +69,8 @@
 {
     margin-bottom: 3px;
 }
-#password {
+.f_password {
+    align-items: center;
     width: fit-content;
     margin: 5px 0px;
 }

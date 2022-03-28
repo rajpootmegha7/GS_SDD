@@ -6,7 +6,7 @@ import img2 from '../../images/mint.jpeg'
 import otto_pic from '../../images/otto.png'
 import danice_pic from '../../images/danice.jpg'
 import tyler_pic from '../../images/tyler.png'
-//import otto_pic from '../../images/otto.png'
+import nate_pic from '../../images/nate.png'
 import megha_pic from '../../images/megha.jpg'
 import './style.css'
 import { Parallax } from 'react-parallax';
@@ -14,13 +14,8 @@ import { Parallax } from 'react-parallax';
 
 export default class aboutus extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
+    // this class is particularly simple, it only displays frontend components and has no functionality
+    // any element of functionality such as the header and footer are dealt with separately
     render() {
         return (
             <div className="about_us_container">
@@ -113,13 +108,13 @@ export default class aboutus extends Component {
                 </Parallax>
                 <div className="person_container">
                     <div className="about_us_img">
-                        <img src={img1} alt="Nate" className="nate_pic" />
+                        <img src={nate_pic} alt="Nate" className="nate_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
                         <div>
-                            I am a graduating CS student currently working as a frontend developer for Garden Shepherd.
+                            Hello everyone! A little bit about myself, I am a graduating CS student currently working as a frontend developer for Garden Shepherd.
                             I knew I wanted to work on this project as soon as I heard about it, as I grew up in a household full of plants, and would love to see an app that helps people get into gardening.
-                            My hobbies include archery, tutoring, and playing video games.
+                            My hobbies include archery, doodling, and playing video games.
                             <p className="person_name">- Nate Zink</p>
                         </div>
                     </div>

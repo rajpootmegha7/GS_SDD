@@ -33,7 +33,7 @@ export default class forgotpass extends Component {
 
 
 
-
+    // function called when the user submits their username
     clickSubmitUsername() {
         var data = {
             _username: this.state.username,
@@ -45,6 +45,7 @@ export default class forgotpass extends Component {
 
 
     verifyUsername(data) {
+        // here we need to query the backend with the request formed below to ensure the username denotes a valid user
         var request = new Request('http://localhost:4000/forgot_password/api/check_userid', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -58,6 +59,8 @@ export default class forgotpass extends Component {
                 else if (response.status === 406) throw new Error('No user with that username');
                 else if (response.status === 404) throw new Error('Not found');
                 
+                // after querying the backend, we should have gotten a security question, otherwise the errors above would have been triggered
+                // with the security question we will now hide the username component and display the security question and answer field
                 response.json().then(function (data) {
                     that.setState({securityQuestion: data.text});
                     console.log(that.state.securityQuestion);
@@ -76,7 +79,7 @@ export default class forgotpass extends Component {
 
 
 
-
+    // called when the user clicks the button after entering the answer to their security question
     clickSubmitSecurity() {
         var data = {
             _username: this.state.username,
@@ -89,6 +92,7 @@ export default class forgotpass extends Component {
 
 
     verifySecurity(data) {
+        // verifies the correctness of the user's answer to the security question
         var request = new Request('http://localhost:4000/checkSecQuestion/api/check_sec', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -101,6 +105,7 @@ export default class forgotpass extends Component {
                 else if (response.status === 406) throw new Error('Wrong answer to security question');
                 else if (response.status === 404) throw new Error('Not found');
 
+                // if the validation was a success, then we will toggle the state to show the password fields for the user to reset their password
                 response.json().then(function (data) {
                     that.showSuccess('Validation success');
                     that.setState({ showResetPass: true })
@@ -116,7 +121,7 @@ export default class forgotpass extends Component {
 
 
 
-
+    // called when the user clicks the submit button after entering in two paswords
     clickSubmitPass() {
         var data = {
             _username: this.state.username,
@@ -124,6 +129,7 @@ export default class forgotpass extends Component {
         };
         console.log(data);
 
+        // this series of statements test that the passwords must match, and that the fields cannot be blank
         if (!this.state.pass1) {
             this.showError('Password field cannot be blank');
             return;
@@ -140,6 +146,7 @@ export default class forgotpass extends Component {
     }
 
     updatePass(data) {
+        // query the backend with the request formed below
         var request = new Request('http://localhost:4000/reset_password/api/reset', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -153,6 +160,7 @@ export default class forgotpass extends Component {
                 else if (response.status === 406) throw new Error('Error changing password');
                 else if (response.status === 404) throw new Error('Not found');
                 response.json().then(function (data) {
+                    // if the password was changed successfully, send the user to the login screen
                     console.log("Success");
                     that.props.history.push("/Login");
                 });
@@ -165,7 +173,7 @@ export default class forgotpass extends Component {
     
 
 
-
+    // popups to display the status of the user's attempts to change their password
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
@@ -175,7 +183,9 @@ export default class forgotpass extends Component {
 
 
 
-
+    // the only thing to note with this render is the use of elements of the state to display certain things at certain times
+    // if showUsername for example is true, we should see a prompt for the users username. If it is false and showResetPass
+    // is true, then we should instead see two fields to enter in a new password and match it
     render() {
         return (
             <Fragment>
@@ -185,12 +195,10 @@ export default class forgotpass extends Component {
                 { this.state.showUsername ? <div className="forgotpass_container">
                     <div className="forgot">Forgot Password?</div>
                     <div className="input_container">
-                        {/*<label htmlFor="username" className="block">Username</label>*/}
                         <InputText  id="username" aria-describedby="username-help"
                                     placeholder='Enter username' required
                                     onChange={(e) => this.setState({ username: e.target.value })}
                         />
-                        {/*<small id="username-help" className="block">Enter your username above.</small>*/}
                         { this.state.showUsernameButton ? <div>
                             <Button onClick={this.clickSubmitUsername}>
                                 Submit
@@ -198,12 +206,10 @@ export default class forgotpass extends Component {
                         </div> : null}
                     </div>
                     { this.state.showSecurity ? <div className="security_container" visible="false">
-                        {/*<label htmlFor="username" className="block">{this.state.securityQuestion}</label>*/}
                         <div className="security_question">{this.state.securityQuestion}</div>
                         <InputText  id="username" placeholder='Answer' required
                                     onChange={(e) => this.setState({ securityAnswer: e.target.value })}
                         />
-                        {/*<small id="username-help" className="block">Enter the answer above.</small>*/}
                         <Button onClick={this.clickSubmitSecurity}>
                             Submit
                         </Button >
@@ -212,18 +218,16 @@ export default class forgotpass extends Component {
                 { this.state.showResetPass ? <div className="resetpass_container">
                     <div className="resetpass">Reset Password</div>
                     <div className="input_container">
-                        {/*<label htmlFor="password" className="block">Password</label>*/}
                         <Password
-                            id="password"
+                            className="f_password"
                             value={this.state.pass1}
                             placeholder='Enter a password'
                             onChange={(e) => this.setState({ pass1: e.target.value })} toggleMask
                             required
                         />
                         <div className="break"></div>
-                        {/*<label htmlFor="password" className="block">Confirm Password</label>*/}
                         <Password
-                            id="password"
+                            className="f_password"
                             value={this.state.pass2}
                             placeholder='Confirm your password'
                             onChange={(e) => this.setState({ pass2: e.target.value })} toggleMask
