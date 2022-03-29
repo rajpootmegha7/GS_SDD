@@ -1,19 +1,22 @@
-.image_container{
-    background: no-repeat;
-    background-image: url(../../images/wallpaper.jpeg);
-    height: 50em;
-    width: 100%;
+.fp_image_container{
+    background: url(../../images/wallpaper.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
 .forgotpass_container {
     background-color: rgb(255, 255, 255);
     padding: 10px;
-    position: fixed;
+    position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
     outline: 2px solid #cecece;
     height: fit-content;
+    min-height: 35vh;
     width: fit-content;
+    min-width: 30vw;
 }
 .forgot {
     text-align: center;
@@ -54,7 +57,9 @@
     border-radius: 8px;
     outline: 2px solid #cecece;
     height: fit-content;
+    min-height: 35vh;
     width: fit-content;
+    min-width: 30vw;
 }
 .resetpass {
     text-align: center;
@@ -64,7 +69,8 @@
 {
     margin-bottom: 3px;
 }
-#password {
+.f_password {
+    align-items: center;
     width: fit-content;
     margin: 5px 0px;
 }

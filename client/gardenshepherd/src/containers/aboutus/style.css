@@ -1,8 +1,8 @@
-.parallax_container {
+.first_parallax_container {
     height: 100vh;
 }
 .parallax_container {
-    height: 100vh;
+    height: 70vh;
 }
 .person_container {
     display: flex;
@@ -16,8 +16,10 @@
     position: relative;
     height: 48vh;
     flex: 0.6;
+    margin: 15px;
 }
 .about_us_img {
+    text-align: center;
     position: relative;
     height: 48vh;
     flex: 0.4;
@@ -26,6 +28,7 @@
     border-radius: 8px;
 }
 .megha_pic {
+    position: relative;
     height: 100%;
     width: auto;
     border-radius: 8px;
