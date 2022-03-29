@@ -26,7 +26,7 @@ Save_router.post('/api/save_gardenLayout', function (req, res) {
     var data;
     
     //save generic data if debug, otherwsie send sent data
-    if(debug){
+    if(gardenData.debug){
         data = [
                 /* first four rows just to test if it's saving integers properly */
                 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 1, 2, 3, 4],
@@ -67,7 +67,7 @@ Save_router.post('/api/save_gardenLayout', function (req, res) {
     }
 
     //generates the data to write to file
-    var writeData = data.size + " " + data[].size + '\n'; //  <==== potential debug point, might need to swap data.size and data[].size
+    var writeData = data.size + " " + data[].size + " \n"; //  <==== potential debug point, might need to swap data.size and data[].size
     for(var i = 0; i < data.size; i++){
         for(var j = 0; j < date[i].size; j++){
             writeData = writeData + data[i][j] + " ";
