@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import './style.css'
 
 export default class Footer extends Component {
-    // constructor(props) {
-    //     super(props)
-
-    //     this.state = {
-    //     }
-    // }
 
     render() {
         return (
@@ -23,7 +17,6 @@ export default class Footer extends Component {
                                 <li><a href="/gs/about-us">Staff</a></li>
                                 <li><a href="/gs/planner">Planner</a></li>
                                 <li><a href="/gs/dashboard">Encyclopedia</a></li>
-                                <li><a href="/logout">Logout</a></li>
                             </ul>
                         </div>
                         <div class="module">
@@ -33,6 +26,9 @@ export default class Footer extends Component {
                                 Whether its your first time or your fiftieth, our app will provide you with the tools you need to create a garden and mantain it for years!
                             </p>
                             <ul>
+                                <li>Contact us!</li>
+                                <li>(518) 443-3127</li>
+                                <li>GSSupport@gardenshepherd.com</li>
                                 <li>110 8th Street</li>
                                 <li>Troy, NY 12180</li>
                             </ul>
