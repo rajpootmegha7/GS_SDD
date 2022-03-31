@@ -153,8 +153,8 @@ rowPlantDescription=(rowData)=>{
         <div className='plant_name'>{rowData.name}</div>
         <p className='plant_desc'>{rowData.desc}</p>
         <div className='plant_req'>
-            <div className='plant_label'>plant spacing {rowData.plant_spacing} ft</div>
-            <div className='plant_label'>water schedule {rowData.water_schedule} days/week</div>
+            <div className='plant_label'>plant spacing {rowData.plant_spacing} ft square</div>
+            <div className='plant_label'>water schedule every {rowData.water_schedule} days</div>
         </div>
         
     </div>
