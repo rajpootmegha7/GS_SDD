@@ -13,14 +13,17 @@ const { Router } = require('express');
      var _plantseason = search_data._plantseason;
      var _plantlocation = search_data._plantlocation;
 
+    //  Handles multiple search filters
      var multparameters = false;
 
      var search_query = "SELECT * FROM plantInfo where "
+    //  Name filter, text field that we check with ilike
      if(_plantname){
          multparameters = true;
          search_query += "PLANT_NAME ilike '%"+ _plantname + "%'";
      }
-
+    
+     //  Type filter, dropdown that we check with equality
      if(_planttype){
          if(multparameters)
              search_query += " AND ";
@@ -28,6 +31,7 @@ const { Router } = require('express');
          search_query += util.format("PLANT_TYPE = \'%s\'", _planttype);
      }
 
+    //  Season filter, dropdown that we check with equality
      if(_plantseason){
          if(multparameters)
              search_query += " AND ";
@@ -35,12 +39,14 @@ const { Router } = require('express');
          search_query += util.format("season_type_id = \'%s\'", _plantseason);
      }
 
+    //  Location field, Dropdown we check if selected falls within plant's range
      if(_plantlocation){
          if(multparameters)
              search_query += " AND ";
          search_query += util.format("ZONE_LOWER <= %s and ZONE_UPPER >= %s", _plantlocation, _plantlocation);
      }
 
+    //  Have to add semicolon at end since we don't know what filters will be used
      search_query += ";";
      console.log(search_query);
 
@@ -55,8 +61,10 @@ const { Router } = require('express');
              // console.log(err)
              done();
              
-             if(table.rows.length === 0) return res.sendStatus(403);
-             return res.status(200).send({text:"Search Successful", data:table.rows});
+            if(table.rows.length === 0) 
+                return res.sendStatus(403);
+            
+            return res.status(200).send({text:"Search Successful", data:table.rows});
 
          })
      });
