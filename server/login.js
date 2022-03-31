@@ -22,9 +22,11 @@ login_router.post('/api/get_userid', function (req, res) {
         db.query(sql_query,(err, table) => {
             done();
             console.log("Here Users: " + table.rowCount);
+            // User doesn't exist in database
             if(table.rowCount == 0){
-                return res.status(405).send({msg:"User not Available in DB"}); // user not available
+                return res.status(405).send({msg:"User not Available in DB"});
             }
+            // User does exist
             else{
                 var backend_pass = '';
                 table.rows.forEach(row =>{
