@@ -74,7 +74,7 @@ html, body, #body *, #footer *{ margin: 0; padding: 0; display: block; color: #3
 				#body{  } 
 					#resources{  } 
 						#modules{  } 
-							#modules > .module{ width: 25%; } 
+							#modules > .module{ width: 50%; } 
 								#modules > .module > h3{ text-align: left; } 
 								#modules > .module:nth-child(odd) > h3{ text-align: left; } 
 								#modules > .module > p{  } 

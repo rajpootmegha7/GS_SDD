@@ -6,7 +6,7 @@ import img2 from '../../images/mint.jpeg'
 import otto_pic from '../../images/otto.png'
 import danice_pic from '../../images/danice.jpg'
 import tyler_pic from '../../images/tyler.png'
-import nate_pic from '../../images/nate.png'
+import nate_pic from '../../images/nate.JPG'
 import megha_pic from '../../images/megha.jpg'
 import './style.css'
 import { Parallax } from 'react-parallax';
