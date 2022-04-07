@@ -9,17 +9,7 @@ const deletePlant = {code:'', name:'Delete', desc:'', image:'https://preview.red
 
 function Plant(plantId){
     console.log("Plant:",plantId.plantId)
-    // const plId = ''
-    // console.log(code)
-    // if(typeof(plantId) !== 'undefined' && plantId != null)
-    //     plId = plantId.plantId
-    // else
-    //     code = ''
-    // const code = plantId ? plantId.plantId : ''
-    // return (<span>
-    //     {plantId.plantId.name}
-    // </span>
-    // )
+    
    return (<div>
         <img src={plantId.plantId.image} alt={plantId.plantId.name} height={100} width={100} />
     </div>)
@@ -27,19 +17,7 @@ function Plant(plantId){
 
 
 function Square({ selectedPlant, children}) {
-    console.log("Square:",selectedPlant)
-    // const [, drop] = useDrop(
-    //     () => ({
-    //         accept: 'plant',
-    //         drop: () => {
-            
-    //         updateChild(<Plant/>)
-    //       }
-    //     }),
-    //   )
-
-    // const fill = black ? 'black' : 'white'
-    // const stroke = black ? 'white' : 'black'
+    
     const [square, setSquare] = useState({
         children: children})
 
@@ -49,7 +27,6 @@ function Square({ selectedPlant, children}) {
         return;
     }
     const updateChild = (child) => {
-        console.log('hello')
         setSquare(previousState => {
             return { ...previousState, children:child }
         });
@@ -59,7 +36,6 @@ function Square({ selectedPlant, children}) {
         <div   
             onClick={handleClick}
             
-            // ref={drop}
             style={{
                 backgroundColor: 'white',
                 color: 'black',
@@ -71,27 +47,6 @@ function Square({ selectedPlant, children}) {
         </div>
     )
 }
-// function Square({ black, children }) {
-//     const fill = black ? 'black' : 'white'
-//     const stroke = black ? 'white' : 'black'
-
-//     // handleClick(){
-//     //     updateChild()
-//     // }
-//     return (
-//         <div 
-//             // onClick={handleClick}
-//             style={{
-//                 backgroundColor: fill,
-//                 color: stroke,
-//                 width: '100px',
-//                 height: '100px'
-//             }}
-//         >
-//             {children}
-//         </div>
-//     )
-// }
 
 function renderSquare(i, selectedPlant) {
 
@@ -108,8 +63,6 @@ function Board(selectedPlant) {
         squares.push(renderSquare(i, selectedPlant))
     }
 
-    if(typeof(squares[0].selectedPlant) !== 'undefined' && squares[0].selectedPlant !== null)
-        console.log(squares[0].selectedPlant.code)
     return (
         <div
             style={{
