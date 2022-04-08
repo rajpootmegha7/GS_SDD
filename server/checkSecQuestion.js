@@ -11,6 +11,7 @@ security_router.post('/api/check_sec', function (req, res) {
     var _username = user_data._username;
     //Validation code
 
+    // checks the security question of a particular user
     var sql_query = "SELECT * FROM public.userinfo WHERE user_name='" + _username + "' and security_answer='" + _securityAnswer + "'";
     console.log(sql_query);
 

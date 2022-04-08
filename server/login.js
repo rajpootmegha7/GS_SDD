@@ -11,6 +11,7 @@ login_router.post('/api/get_userid', function (req, res) {
     var _password = user_data._password;
     //Validation code
 
+    // selects a user from the database based on username
     var sqlQuery = "SELECT * FROM public.userinfo where user_name='" + _username + "'";
     console.log(sqlQuery);
 

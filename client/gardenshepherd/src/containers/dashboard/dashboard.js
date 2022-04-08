@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { Link} from "react-router-dom";
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import './style.css'
 
 import { Parallax } from 'react-parallax';
@@ -69,15 +70,17 @@ constructor(props){
         {code:1, desc: "With its stately upright foliage that almost looks artificial, the snake plant (also called mother-in-law’s tongue) adds great architectural form to a room and complements all styles of decor.", name: 'Snake Plant', image:'https://www.almanac.com/sites/default/files/users/The%20Editors/snake_plant_sansevieria_trifasciata_laurentii_mokkie-wc_full_width.jpg',plant_spacing: 2, water_schedule:3},
         {code:2, desc: "Whether you choose upright or trailing/climbing types, philodendrons are one of the easiest houseplants you can possibly grow. You can train them up a trellis or simply leave them to their own devices; philodendrons will survive no matter what.", name: 'Philodendron', image:'https://cdn.shopify.com/s/files/1/0812/7647/products/Screenshot2020-04-2717.05.28.png?v=1625306899',plant_spacing: 4, water_schedule:5}]
 }
+
+// ensures the datatable component renders
 componentDidMount() {
     this.setState({plantData: this._plantdata});
 }
 
 showmsg = (event)=> {
     console.log("Dashboard" + this.state.selectedPlants);
-
 }
 
+// the three below functions update the plants to match the query
 onPlantTypeChange = (e)=> {
     this.setState({plantType:e.value})
 }
@@ -90,6 +93,7 @@ onLocationChange = (e)=> {
     this.setState({location:e.value})
 }
 
+// creates and sends the query to the backend and gets plants that match
 clickSearchPlant = (event)=> {
     event.preventDefault();
     if(this.state.plantName === '' && this.state.plantType === null && this.state.season === null && this.state.location === null){
@@ -140,6 +144,8 @@ clickSearchPlant = (event)=> {
         });
 
 }
+
+// renders the images for each plant
 imageBodyTemplate = (rowData)=> {
     console.log(rowData.image);
     return(<img src={rowData.image}
@@ -147,6 +153,7 @@ imageBodyTemplate = (rowData)=> {
     alt="" className="product_image" />);
 }
 
+// Fills information within the plant card
 rowPlantDescription = (rowData)=> {
     return(
     <div className='plant_card'>
@@ -229,6 +236,7 @@ onClickDefault = (e)=> {
                         state: this.state.selectedPlants}}>Add To Planner
                     </Link>
                 </Button>
+                <Footer/>
                 </div>
             </div>
         )

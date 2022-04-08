@@ -44,6 +44,8 @@ export default class register extends Component {
         this.showError = this.showError.bind(this);
 
     }
+
+    // puts the list of all countries into the dropdown menu
     countryTemplate(option) {
         return (
             <div className="country-item">
@@ -51,6 +53,8 @@ export default class register extends Component {
             </div>
         );
     }
+
+    // updates the security question
     onSecurityQuestionChange(event) {
         event.preventDefault();
         console.log(event);
@@ -58,6 +62,8 @@ export default class register extends Component {
         return;
 
     }
+
+    // verifies the values of the fields before creating a backend request
     onclickSubmit(event) {
         event.preventDefault();
 
@@ -105,6 +111,7 @@ export default class register extends Component {
         this.verifyRegistration(data);
     }
 
+    // creates backend request and handles return
     verifyRegistration(data) {
         console.log('Verifying user input');
         var request = new Request('http://localhost:4000/register/api/create_userid', {
@@ -138,14 +145,14 @@ export default class register extends Component {
         this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
     }
 
-
+    // ensures that the list of countries within the dropdown will render
     componentDidMount() {
-
         countryList().getData().forEach(element => {
             var row = { name: element.label, code: element.value }
             this.countrylist.push(row);
         });
     }
+
 
     render() {
         return (

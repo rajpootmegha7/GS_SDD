@@ -11,6 +11,7 @@ reset_router.post('/api/reset', function (req, res) {
     var _password = user_data._pass1;
     //Validation code
 
+    // sets a user's password based on their username and the password that is passed in
     var sql_query = "UPDATE public.userinfo SET user_password='" + _password + "' WHERE user_name='" + _username + "'";
     console.log(sql_query);
 
