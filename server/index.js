@@ -28,7 +28,7 @@ app.use(function(request, response, next) {
 
   const database = require('./connection/connectPSQL');
 
-;(async function(){
+;(async function() {
     app.listen(PORT);
     console.log('Listening to the PORT: '+ PORT);
     const client = await database.connect();

@@ -14,17 +14,16 @@ reset_router.post('/api/reset', function (req, res) {
     var sql_query = "UPDATE public.userinfo SET user_password='" + _password + "' WHERE user_name='" + _username + "'";
     console.log(sql_query);
 
-    pool.connect((err,db,done)=>{
+    pool.connect((err,db,done)=> {
         if (err) {
             (console.log('Error in Connecting the POOL: ' + err));
             return res.status(400).send(err);
         }
-        db.query(sql_query,(err, table) => {
+        db.query(sql_query,(err, table)=> {
             done();
-            if(table.rowCount === 0){
+            if(table.rowCount === 0) {
                 return res.status(406).send({msg:"Error changing password"}); // user not available
-            }
-            else{
+            } else {
                 return res.status(200).send({text:"Success"});
             }
         })

@@ -10,8 +10,6 @@ import { Dropdown } from 'primereact/dropdown';
 import Footer from '../../components/Footer/Footer'
 
 
-// let options = useMemo(() => countryList().getData(), []);
-
 export default class register extends Component {
 
     constructor(props) {

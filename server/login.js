@@ -14,7 +14,7 @@ login_router.post('/api/get_userid', function (req, res) {
     var sqlQuery = "SELECT * FROM public.userinfo where user_name='" + _username + "'";
     console.log(sqlQuery);
 
-    pool.connect((err,db,done)=>{
+    pool.connect((err,db,done)=> {
         if (err) {
             (console.log('Error in Connecting the POOL: ' + err));
             return res.status(400).send(err);
@@ -23,19 +23,21 @@ login_router.post('/api/get_userid', function (req, res) {
             done();
             console.log("Here Users: " + table.rowCount);
             // User doesn't exist in database
-            if(table.rowCount == 0){
+            if(table.rowCount == 0) {
                 return res.status(405).send({msg:"User not Available in DB"});
             }
             // User does exist
             else{
                 var backend_pass = '';
-                table.rows.forEach(row =>{
+                table.rows.forEach(row=> {
                     console.log(row.user_password)
                     backend_pass = row.user_password;
                 })
 
-                if(_password !== backend_pass) return res.status(406).send({text:"Incorrect Password"});
-                else return res.status(200).send({text:"Successfully Verified"});
+                if(_password !== backend_pass)
+                    return res.status(406).send({text:"Incorrect Password"});
+                else
+                    return res.status(200).send({text:"Successfully Verified"});
             }
         })
     });

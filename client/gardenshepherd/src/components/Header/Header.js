@@ -14,7 +14,7 @@ export default class Header extends Component {
 
     // this functions allows each of the links of the header to be clicked 
     // when not on that part of the page and changes their color
-    componentDidMount(){
+    componentDidMount() {
         if(this.state.activeLink === 'dashboard'){
             let el = document.getElementById('0_btn')
             el.style.borderBottom = '1px solid green'

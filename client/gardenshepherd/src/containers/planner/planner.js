@@ -15,7 +15,7 @@ export default class Planner extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.state.listdata)
         this.setState({plantList: this.state.listdata})
         this.messageNotification.show([

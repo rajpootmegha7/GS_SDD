@@ -69,28 +69,28 @@ constructor(props){
         {code:1, desc: "With its stately upright foliage that almost looks artificial, the snake plant (also called mother-in-law’s tongue) adds great architectural form to a room and complements all styles of decor.", name: 'Snake Plant', image:'https://www.almanac.com/sites/default/files/users/The%20Editors/snake_plant_sansevieria_trifasciata_laurentii_mokkie-wc_full_width.jpg',plant_spacing: 2, water_schedule:3},
         {code:2, desc: "Whether you choose upright or trailing/climbing types, philodendrons are one of the easiest houseplants you can possibly grow. You can train them up a trellis or simply leave them to their own devices; philodendrons will survive no matter what.", name: 'Philodendron', image:'https://cdn.shopify.com/s/files/1/0812/7647/products/Screenshot2020-04-2717.05.28.png?v=1625306899',plant_spacing: 4, water_schedule:5}]
 }
-componentDidMount(){
+componentDidMount() {
     this.setState({plantData: this._plantdata});
 }
 
-showmsg=(event)=>{
+showmsg = (event)=> {
     console.log("Dashboard" + this.state.selectedPlants);
 
 }
 
-onPlantTypeChange=(e)=>{
+onPlantTypeChange = (e)=> {
     this.setState({plantType:e.value})
 }
 
-onSeasonChange=(e)=>{
+onSeasonChange = (e)=> {
     this.setState({season:e.value})
 }
 
-onLocationChange=(e)=>{
+onLocationChange = (e)=> {
     this.setState({location:e.value})
 }
 
-clickSearchPlant=(event)=>{
+clickSearchPlant = (event)=> {
     event.preventDefault();
     if(this.state.plantName === '' && this.state.plantType === null && this.state.season === null && this.state.location === null){
         alert('No Options Selected');
@@ -129,7 +129,7 @@ clickSearchPlant=(event)=>{
                 that.setState({plantData: that._plantInfo})
 
             })
-            .catch((err)=>{
+            .catch((err)=> {
                 console.log('In catch1: '+ err.message);
                 that.setState({plantData: null})
             })
@@ -140,14 +140,14 @@ clickSearchPlant=(event)=>{
         });
 
 }
-imageBodyTemplate=(rowData)=>{
+imageBodyTemplate = (rowData)=> {
     console.log(rowData.image);
     return(<img src={rowData.image}
     onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} 
     alt="" className="product_image" />);
 }
 
-rowPlantDescription=(rowData)=>{
+rowPlantDescription = (rowData)=> {
     return(
     <div className='plant_card'>
         <div className='plant_name'>{rowData.name}</div>
@@ -161,7 +161,7 @@ rowPlantDescription=(rowData)=>{
     );
 }
 
-onClickDefault = (e)=>{
+onClickDefault = (e)=> {
     e.preventDefault();
     this.setState({
         season: null,
@@ -172,11 +172,8 @@ onClickDefault = (e)=>{
     })
 }
 
-
     render() {
-
         const footer = `Total ${this.state.plantData ? this.state.plantData.length : 0} plants found.`;
-
         return (
             <div>
                 <div className='dashboard_container'>
@@ -189,7 +186,6 @@ onClickDefault = (e)=>{
                         </div>
                     </div>
                 </Parallax>
-
                 <Parallax bgImage={image_p2} strength={-500}   > 
                     <div className='search_text'>
                         <div id='st_2'>choose your filters</div>
@@ -199,19 +195,16 @@ onClickDefault = (e)=>{
                     <InputText id="drop_1" placeholder='Enter Plant Name'
                         value={this.state.plantName}
                         onChange={(e) => this.setState({ plantName: e.target.value })} />
-
                     <Dropdown id='drop_2' placeholder='Select Plant Type'
                     value={this.state.plantType}
                     options={this.plantType} 
                     onChange={this.onPlantTypeChange} 
                     optionLabel="name">Plant Type</Dropdown>
-
                     <Dropdown id='drop_3' placeholder='Select Seasons'
                     value={this.state.season}
                     options={this.season} 
                     onChange={this.onSeasonChange} 
                     optionLabel="name">Seasons</Dropdown>
-
                     <Dropdown id='drop_4' placeholder='Select Location'
                     value={this.state.location}
                     options={this.location} 
@@ -224,8 +217,6 @@ onClickDefault = (e)=>{
                     iconPos="right" onClick={this.clickSearchPlant}/>
                     <Button id="button_default" label="Default Settings" onClick={this.onClickDefault}/>
                 </div>
-
-
                 <DataTable value={this.state.plantData} footer={footer} responsiveLayout="scroll"
                 selection={this.state.selectedPlants} onSelectionChange={(e) => this.setState({ selectedPlants: e.value })}>
                     <Column header="Image" body={this.imageBodyTemplate}></Column>
@@ -238,11 +229,7 @@ onClickDefault = (e)=>{
                         state: this.state.selectedPlants}}>Add To Planner
                     </Link>
                 </Button>
-                    
-                
-  
                 </div>
-
             </div>
         )
     }

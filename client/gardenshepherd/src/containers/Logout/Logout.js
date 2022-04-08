@@ -4,7 +4,7 @@ import './style.css'
 import Button from '../../components/Button'
 
 export default class Logout extends Component {
-  componentDidMount(){
+  componentDidMount() {
     localStorage.clear('username');
     localStorage.setItem('isLogged', false);
   }
