@@ -1,4 +1,4 @@
-.header-cont{
+.header_cont{
     height: 4em;
     width: 100%;
     display: flex;
@@ -12,9 +12,7 @@
     height:70px;
     position: relative;
 }
-
-
-.menu-cont {
+.menu_cont {
     display: inline-flex;
     justify-content: space-evenly;
     width: 40%;

@@ -10,9 +10,9 @@
     display: inline-flex;
     justify-content: space-around;
 }
-.plant-list_menu{
-    float: right;
-    text-align: center;
+.plant-list_menu {
+  float: right;
+  text-align: center;
 }
 
 .msg_container>p{

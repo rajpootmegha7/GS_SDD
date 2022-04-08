@@ -14,7 +14,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Footer from '../../components/Footer/Footer';
 
-
+// Class which contains all the details about the search functionality and filters.
 
 export default class dashboard extends Component {
 constructor(props){
@@ -73,24 +73,24 @@ constructor(props){
 componentDidMount(){
     this.setState({plantData: this._plantdata});
 }
-
+// Function to show message about selected plants.
 showmsg=(event)=>{
     console.log("Dashboard" + this.state.selectedPlants);
 
 }
-
+//Dropdown - Plant type change about the details of the plants based on values.
 onPlantTypeChange=(e)=>{
     this.setState({plantType:e.value})
 }
-
+//Dropdown - Season change as per the 4 values present in database - Fall, Spring, Summer, Winter
 onSeasonChange=(e)=>{
     this.setState({season:e.value})
 }
-
+//Dropdown - location values on the search.
 onLocationChange=(e)=>{
     this.setState({location:e.value})
 }
-
+//Function to search the plants and send the post request to the database to fetch the details.
 clickSearchPlant=(event)=>{
     event.preventDefault();
     if(this.state.plantName === '' && this.state.plantType === null && this.state.season === null && this.state.location === null){
@@ -147,7 +147,7 @@ imageBodyTemplate=(rowData)=>{
     onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} 
     alt="" className="product-image" />);
 }
-
+//Function to display the data over the rows for each plant in table.
 rowPlantDescription=(rowData)=>{
     return(
     <div className='plant_card'>
@@ -161,7 +161,7 @@ rowPlantDescription=(rowData)=>{
     </div>
     );
 }
-
+//Function to display the default values on the search page.
 onClickDefault = (e)=>{
     e.preventDefault();
     this.setState({

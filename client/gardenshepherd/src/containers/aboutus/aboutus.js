@@ -26,11 +26,6 @@ export default class aboutus extends Component {
                             <div className="page_title">
                                 About us
                             </div>
-                            {/*<div className="page_title_body">
-                                I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
-                                I found planning a garden to be difficult and wanted to create a tool to help myself and others.
-                                By releasing Garden Shepherd as a web app, I hope to help more people start growing some of their own food.
-                            </div>*/}
                         </div>
                     </div>
                 </Parallax>

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './style.css'
 
-
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';

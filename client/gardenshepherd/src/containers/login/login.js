@@ -90,11 +90,11 @@ export default class login extends Component {
                         <div className="container_welcome">
                             <p id="welcome">Welcome to</p><p id="welcome2"> Garden Shepherd! </p>
                             <span id="no_account">
-                                <a className='l-btn' href="/Register">No account? Sign up </a>
+                                <a className='l_btn' href="/Register">No account? Sign up </a>
                             </span>
                         </div>
                         <h1 id="sign_in">Sign in </h1>
-                        <span className="p-float-label">
+                        <span className="p_float_label">
                         <p id='label_text'>Enter your Username</p>   
                         <InputText
                             id="form_input"
@@ -112,7 +112,7 @@ export default class login extends Component {
                             toggleMask 
                             required/>
                         <span id="forgot_password">
-                            <a className='l-btn' href="/Forgot-Password"> Forgot Password </a>
+                            <a className='l_btn' href="/Forgot-Password"> Forgot Password </a>
                         </span>
                         <Button label="Submit" className="l_button_submit p-button-outlined p-button-success" onClick={this.clickSubmit} />
                     </div>

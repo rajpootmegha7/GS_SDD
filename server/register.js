@@ -29,14 +29,12 @@ register_router.post('/api/create_userid', function (req, res) {
     // Initial SQL Query to check if user already exists
     var username_query = util.format("SELECT * FROM userInfo where user_name=\'%s\'", _username);
 
-    pool.connect((err,db,done)=>{
+    pool.connect((err,db,done)=> {
         if (err) {
-
             (console.log('Error in Connecting the POOL: ' + err));
             return res.status(400).send(err);
         }
-        db.query(username_query,(err, table) => {
-
+        db.query(usernameQuery,(err, table) => {
             done();
             // Bad request (some info is missing)
             if(!_password || !_email || !_firstname || !_lastname 
@@ -45,7 +43,7 @@ register_router.post('/api/create_userid', function (req, res) {
                     return res.status(406).send({text:"User info missing"});
             }
             // User already exists
-            else if(table.rowCount > 0){ 
+            else if(table.rowCount > 0) { 
                     console.log("Username is taken");
                     return res.status(406).send({text:"Username is taken"});
             }
@@ -56,11 +54,10 @@ register_router.post('/api/create_userid', function (req, res) {
                     'firstname, lastname, user_password, security_question, security_questi' +
                     'on_code , security_answer, country) VALUES (\'%s\', \'%s\', \'%s\', \'%s\',' + 
                     '\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');', _username, _email, _firstname, _lastname
-                     , _password, _securityquestion, _securityquestioncode, _securityanswer,_selectedcountry);
+                    , _password, _securityquestion, _securityquestioncode, _securityanswer,_selectedcountry);
                 db.query(insert_query,(err, table) => {});
                 return res.status(200).send({text:"Profile Successfully Created"});
             }
-           
         })
     });
 

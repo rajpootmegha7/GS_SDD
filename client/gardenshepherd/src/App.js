@@ -25,10 +25,10 @@ function App() {
           <Route path="/Login" exact component={login} />
           <Route path="/Forgot-Password" exact component={forgot} />
           <Route path="/Register" exact component={register} />
-          <ProtectedRoute path='/gs/dashboard' exact component={dashboard} />
-          <ProtectedRoute path='/gs/planner' exact component={Planner} />
-          <Route path='/gs/about-us' exact component={aboutus} />
-          <Route path='/gs/logout' exact component={Logout} />
+          <ProtectedRoute path='/gs/Dashboard' exact component={dashboard} />
+          <ProtectedRoute path='/gs/Planner' exact component={Planner} />
+          <Route path='/gs/About-us' exact component={aboutus} />
+          <Route path='/gs/Logout' exact component={Logout} />
         </Switch>
       </div>
     </Router>

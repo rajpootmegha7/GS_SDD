@@ -3,8 +3,8 @@ import { Link} from "react-router-dom";
 import './style.css'
 import Button from '../../components/Button'
 
-export default class Logout extends Component {
-  componentDidMount(){
+export default class logout extends Component {
+  componentDidMount() {
     localStorage.clear('username');
     localStorage.setItem('isLogged', false);
   }

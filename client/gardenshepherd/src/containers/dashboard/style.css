@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Smooch+Sans:wght@100&display=swap');
-
-.dashboard_img{
-    width: 100%;
-    height: 30em;
+.dashboard_img {
+  width: 100%;
+  height: 30em;
 }
-
-.search_text{
-    height: 500px;
-    
+.search_text {
+  height: 500px;
 }
-#st-1{
+#st_1  {
   color: white;
   transform: translate(-50%, -50%);
   font-size: 4em;
