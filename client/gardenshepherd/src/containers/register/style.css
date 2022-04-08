@@ -30,10 +30,9 @@
   margin: unset;
   margin-bottom: 10px;
 }
-.container_welcome{
-    display: flex;
+.container_welcome {
+  display: flex;
 }
-
 #welcome {
   font-family: Poppins;
   font-style: normal;
@@ -51,41 +50,41 @@
   margin-left: 5px;
   line-height: 31px;  
 }
-#no_account{
+#no_account {
   margin-left: auto;
   margin-top: 1.5em;
   cursor: pointer;
 }
-.username_text{
+.username_text {
   padding-bottom: 2em;
 }
-#forgot_password{
+#forgot_password {
   position: relative;
   display: flex;
   flex-flow: row-reverse;
 }
-#button_submit_1{
+#button_submit_1 {
   margin-top: 20px;
   margin-left: auto;
   width: 9em;
   border-radius: 25px;
 }
-#label_text{
+#label_text {
   font-family: 'Lobster', cursive;
   color: darkslategrey;
 }
-#formname{
+#formname {
   width: 100%;
   display: inline-flex;
 }
-.p-inputtext{
+.p-inputtext {
   width: 99%;
   margin: 4px;
 }
-.p-password{
+.p-password {
   width: 100%;
 }
-.l_btn{
+.l_btn {
   text-decoration: none;
   color: grey;
   font-size: 14px;
@@ -94,11 +93,11 @@
   border: 1px solid;
   padding: 1px 8px;
 }
-.l_btn:hover{
+.l_btn:hover {
   color: white;
   background-color: grey;
 }
-.p-dropdown{
+.p-dropdown {
   width: auto;
   height: auto;
   margin: 4px;

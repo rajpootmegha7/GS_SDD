@@ -8,7 +8,7 @@ import register from './containers/register/register';
 import dashboard from './containers/dashboard/dashboard';
 import aboutus from './containers/aboutus/aboutus';
 import planner from './containers/planner/planner';
-import Logout from './containers/Logout/Logout';
+import logout from './containers/logout/logout';
 import ProtectedRoute from './components/ProtectedRoute';
 
 
@@ -25,10 +25,10 @@ function App() {
           <Route path="/Login" exact component={login} />
           <Route path="/Forgot-Password" exact component={forgot} />
           <Route path="/Register" exact component={register} />
-          <ProtectedRoute path='/gs/dashboard' exact component={dashboard} />
-          <ProtectedRoute path='/gs/planner' exact component={planner} />
-          <Route path='/gs/about-us' exact component={aboutus} />
-          <Route path='/gs/logout' exact component={Logout} />
+          <ProtectedRoute path='/gs/Dashboard' exact component={dashboard} />
+          <ProtectedRoute path='/gs/Planner' exact component={planner} />
+          <Route path='/gs/About-us' exact component={aboutus} />
+          <Route path='/gs/Logout' exact component={logout} />
         </Switch>
       </div>
     </Router>
