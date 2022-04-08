@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Smooch+Sans:wght@100&display=swap');
-
-.dashboard_img{
-    width: 100%;
-    height: 30em;
+.dashboard_img {
+  width: 100%;
+  height: 30em;
 }
-
-.search_text{
-    height: 500px;
-    
+.search_text {
+  height: 500px;
 }
-#st-1{
+#st_1  {
   color: white;
   transform: translate(-50%, -50%);
   font-size: 4em;
@@ -18,130 +15,104 @@
   position: absolute;
   top: 50%;
 }
-#st-0{
-    color: white;
-    font-size: 67px;
-    left: 25%;
-    position: absolute;
-    top: 15%;
-    /* font-family: 'Dancing Script', cursive; */
-    /* font-family: 'Poiret One', cursive; */
-    font-family: 'Italianno', cursive;
-    /* font-family: 'SangbleuSans'; */
-  }
-
-  #st-2{
-    color: white;
-    transform: translate(-50%, -50%);
-    font-size: 4em;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    border: 1px double white;
-    border: 5px double white;
-    padding: 0px 30px;
-  }
-
-.search_filter_cont{
-    display: flex;
-    margin: 15px 50px;
+#st_0 {
+  color: white;
+  font-size: 67px;
+  left: 25%;
+  position: absolute;
+  top: 15%;
+  font-family: 'Italianno', cursive;
 }
-.btn_container{
-    height: 7em;
+#st_2 {
+  color: white;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  border: 1px double white;
+  border: 5px double white;
+  padding: 0px 30px;
 }
-
-/* .d-p-dropdown {
-    width: 320px;
+.search_filter_cont {
+  display: flex;
+  margin: 15px 50px;
 }
-
-.d-p-inputtext {
-    width: 489px;
-} */
-
-#button_submit{
-    position: relative;
-    margin-left: 45%;
-    border-radius: 5px;
-    background-color: darkslategrey;
-    border: 0px solid darkslategrey;
-    border-radius: 20px;
-    font-size: x-large;
+.btn_container {
+  height: 7em;
 }
-
-#button_submit:hover{
-    background-color: white;
-    color: darkslategray;
-    border: 1px solid darkslategrey;
+#button_submit {
+  position: relative;
+  margin-left: 45%;
+  border-radius: 5px;
+  background-color: darkslategrey;
+  border: 0px solid darkslategrey;
+  border-radius: 20px;
+  font-size: x-large;
 }
-
-#button_default{
-    float: right;
-    border-radius: 20px;
-    height: 15px;
-    right: 5%;
-    background-color: unset;
-    color: cornflowerblue;
-    border: 1px solid cornflowerblue;
+#button_submit:hover {
+  background-color: white;
+  color: darkslategray;
+  border: 1px solid darkslategrey;
 }
-#button_default > .p-button-label{
-    font-weight: 100;
+#button_default {
+  float: right;
+  border-radius: 20px;
+  height: 15px;
+  right: 5%;
+  background-color: unset;
+  color: cornflowerblue;
+  border: 1px solid cornflowerblue;
 }
-
-#button_default:hover{
-    background-color: cornflowerblue;
-    color: white;
-    border: 1px solid cornflowerblue;
+#button_default > .p_button_label {
+  font-weight: 100;
 }
-.product-image{
-    height: 285px;
-    width: 426px;
+#button_default:hover {
+  background-color: cornflowerblue;
+  color: white;
+  border: 1px solid cornflowerblue;
 }
-
-
-.plant_name{
-    font-size: 2.5em;
+.product_image {
+  height: 285px;
+  width: 426px;
 }
-
-.information_container{
-    height: 12em;
-    width: 100%;
-    position: relative;
-    font-size: 2em;
-    /* font-family: 'Smooch Sans', sans-serif; */
+.plant_name {
+  font-size: 2.5em;
 }
-
-.planner_btn{
-    float: right;
-    background-color: cornflowerblue;
-    color: white;
-    border-color: unset;
-    margin: 5px 0px;
-    margin-right: 2em;
+.information_container {
+  height: 12em;
+  width: 100%;
+  position: relative;
+  font-size: 2em;
 }
-
-.planner-link{
-    color: white;
+.planner_btn {
+  float: right;
+  background-color: cornflowerblue;
+  color: white;
+  border-color: unset;
+  margin: 5px 0px;
+  margin-right: 2em;
 }
-
-.p-datatable .p-datatable-footer{
-    font-weight: unset;
+.planner_link {
+  color: white;
 }
-
-.plant_req{
-    display: inline-flex;
+.p_datatable .p_datatable_footer {
+  font-weight: unset;
 }
-.plant_label{
-    width: fit-content;
-    text-align: center;
-    border-radius: 25px;
-    padding: 3px 10px;
-    margin: 0px 15px;
-    background: dodgerblue;
-    color: white;
+.plant_req {
+  display: inline-flex;
 }
-
-.plant_label:hover{
-    border: 1px solid dodgerblue;
-    background: white;
-    color: dodgerblue;
+.plant_label {
+  width: fit-content;
+  text-align: center;
+  border-radius: 25px;
+  padding: 3px 10px;
+  margin: 0px 15px;
+  background: dodgerblue;
+  color: white;
+}
+.plant_label:hover {
+  border: 1px solid dodgerblue;
+  background: white;
+  color: dodgerblue;
 }
