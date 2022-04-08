@@ -22,7 +22,11 @@ How to Install and Run
 
 1. Download the Zip file and extract all contents to an accessible in local machine
 2. Utilizing the file location, open a command prompt within the “...\GS_SDD-main\client\gardenshepherd” location and run npm install.
-3. Run npm start 
+3. Run npm start
+4.	It will start the localhost on port 3000.
+5.	To start the server navigate inside server folder and run npm install.
+6.	Run npm start.
+7.	It will start the node server on port 4000.
 
 Credits
 Plant Database values were derived from the following websites:
