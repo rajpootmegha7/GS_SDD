@@ -64,8 +64,12 @@
   height: 100%;
 }
 .page_title {
-  font-size: 100px;
-  color: rgb(255, 255, 255);
-  font-style: italic;
-  text-shadow: -2px 2px 3px #000000
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    text-shadow: -2px 2px 3px #000000
+}
+.para_text{
+    text-align: justify;
+    text-justify: inter-word;
 }

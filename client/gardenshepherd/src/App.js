@@ -7,8 +7,8 @@ import forgot from './containers/forgotpass/forgotpass';
 import register from './containers/register/register';
 import dashboard from './containers/dashboard/dashboard';
 import aboutus from './containers/aboutus/aboutus';
-import planner from './containers/planner/planner';
-import logout from './containers/logout/logout';
+import Planner from './containers/Planner/planner';
+import Logout from './containers/Logout/Logout';
 import ProtectedRoute from './components/ProtectedRoute';
 
 
@@ -26,9 +26,9 @@ function App() {
           <Route path="/Forgot-Password" exact component={forgot} />
           <Route path="/Register" exact component={register} />
           <ProtectedRoute path='/gs/Dashboard' exact component={dashboard} />
-          <ProtectedRoute path='/gs/Planner' exact component={planner} />
+          <ProtectedRoute path='/gs/Planner' exact component={Planner} />
           <Route path='/gs/About-us' exact component={aboutus} />
-          <Route path='/gs/Logout' exact component={logout} />
+          <Route path='/gs/Logout' exact component={Logout} />
         </Switch>
       </div>
     </Router>
