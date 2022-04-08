@@ -1,10 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-/**
- * @author
- * @function ProtectedRoute
- **/
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (

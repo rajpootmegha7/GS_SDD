@@ -11,8 +11,8 @@ forgot_router.post('/api/check_userid', function (req, res) {
     var _username = user_data._username;
 
     //query for the database to find users with username.
-    var security_query = "SELECT * FROM public.userinfo WHERE user_name='" + _username + "'";
-    console.log(security_query);
+    var securityQuery = "SELECT * FROM public.userinfo WHERE user_name='" + _username + "'";
+    console.log(securityQuery);
     
     //connect to server
     pool.connect((err,db,done)=>{
@@ -23,8 +23,7 @@ forgot_router.post('/api/check_userid', function (req, res) {
         }
         
         //after connection, ask for users with username
-        db.query(security_query,(err, table) => {
-
+        db.query(securityQuery,(err, table) => {
             done();
             console.log("Here Users: " + table.rowCount);
             // No Username found

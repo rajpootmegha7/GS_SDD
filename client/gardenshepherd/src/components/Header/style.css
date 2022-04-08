@@ -1,17 +1,14 @@
-.header-cont{
+.header_cont{
     height: 4em;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: lavender; */
 }
 .logo{
     z-index: -1;
 }
-
-
-.menu-cont {
+.menu_cont {
     display: inline-flex;
     justify-content: space-evenly;
     width: 40%;

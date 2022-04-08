@@ -155,16 +155,14 @@ export default class register extends Component {
                 <Fragment>
                     <Toast ref={(el) => this.toast = el} />
                     <div className="r_container">
-                        {/*<div className='r_image_container'></div>*/}
                         <div id="register_container">
                             <div className="container_welcome">
                                 <p id="welcome">Register to </p><p id="welcome2"> Garden Shepherd! </p>
                                 <span id="no_account">
-                                    <a className='l-btn' href='/Login'>Have an account? Sign in </a>
+                                    <a className='l_btn' href='/Login'>Have an account? Sign in </a>
                                 </span>
                             </div>
                             <h1 id="sign_up">Sign up </h1>
-                            {/* <p id='label_text'>Enter Your username or email address</p> */}
                             <span className="p-float-label">
                                 <InputText
                                     className="form_input"
@@ -221,19 +219,12 @@ export default class register extends Component {
                                 placeholder='Your Answer'
                                 value={this.state.securityAnswer}
                                 onChange={(e) => this.setState({ securityAnswer: e.target.value })} />
-
-                            {/* <span className="p-float-label"> */}
                             <Dropdown
                                 value={this.state.selectedCountries}
                                 placeholder='Country'
                                 options={this.countrylist}
                                 onChange={(e) => this.setState({ selectedCountries: e.value })} filter optionLabel="name"
                                 itemTemplate={this.countryTemplate} style={{ width: '15rem' }} listStyle={{ maxHeight: '230px' }} />
-
-                            {/* </span> */}
-
-
-
                             <Button id="button_submit_1" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                         </div>
                     </div>

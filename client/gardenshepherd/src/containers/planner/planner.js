@@ -7,15 +7,14 @@ import { ListBox } from 'primereact/listbox';
 
 export default class Planner extends Component {
     constructor(props) {
-      super(props)
-    
-      this.state = {
-        listdata: this.props.location.state,
-        plantList:null,
-      }
-      
-
+        super(props)
+        
+        this.state = {
+            listdata: this.props.location.state,
+            plantList:null,
+        }
     }
+
     componentDidMount(){
         console.log(this.state.listdata)
         this.setState({plantList: this.state.listdata})

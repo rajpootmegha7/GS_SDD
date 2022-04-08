@@ -144,7 +144,7 @@ imageBodyTemplate=(rowData)=>{
     console.log(rowData.image);
     return(<img src={rowData.image}
     onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} 
-    alt="" className="product-image" />);
+    alt="" className="product_image" />);
 }
 
 rowPlantDescription=(rowData)=>{
@@ -183,8 +183,8 @@ onClickDefault = (e)=>{
                 <Header pagename={'dashboard'} plants_data={this.state.selectedPlants}/>
                 <Parallax bgImage={image_p1} strength={500}>
                     <div className='search_text'> 
-                        <div id='st-0'>Hi {localStorage.getItem('username')},</div>
-                        <div id='st-1'>
+                        <div id='st_0'>Hi {localStorage.getItem('username')},</div>
+                        <div id='st_1'>
                             your search for plants begins here..
                         </div>
                     </div>
@@ -192,27 +192,27 @@ onClickDefault = (e)=>{
 
                 <Parallax bgImage={image_p2} strength={-500}   > 
                     <div className='search_text'>
-                        <div id='st-2'>choose your filters</div>
+                        <div id='st_2'>choose your filters</div>
                     </div>
                 </Parallax>
                 <div className='search_filter_cont'>
-                    <InputText id="drop-1" placeholder='Enter Plant Name'
+                    <InputText id="drop_1" placeholder='Enter Plant Name'
                         value={this.state.plantName}
                         onChange={(e) => this.setState({ plantName: e.target.value })} />
 
-                    <Dropdown id='drop-2' placeholder='Select Plant Type'
+                    <Dropdown id='drop_2' placeholder='Select Plant Type'
                     value={this.state.plantType}
                     options={this.plantType} 
                     onChange={this.onPlantTypeChange} 
                     optionLabel="name">Plant Type</Dropdown>
 
-                    <Dropdown id='drop-3' placeholder='Select Seasons'
+                    <Dropdown id='drop_3' placeholder='Select Seasons'
                     value={this.state.season}
                     options={this.season} 
                     onChange={this.onSeasonChange} 
                     optionLabel="name">Seasons</Dropdown>
 
-                    <Dropdown id='drop-4' placeholder='Select Location'
+                    <Dropdown id='drop_4' placeholder='Select Location'
                     value={this.state.location}
                     options={this.location} 
                     onChange={this.onLocationChange} 
@@ -220,7 +220,7 @@ onClickDefault = (e)=>{
                     
                 </div>
                 <div className='btn_container'>
-                    <Button id="button_submit" label="Search" icon="pi pi-search"
+                    <Button id="button_submit" label="Search" icon="pi pi_search"
                     iconPos="right" onClick={this.clickSearchPlant}/>
                     <Button id="button_default" label="Default Settings" onClick={this.onClickDefault}/>
                 </div>
@@ -233,7 +233,7 @@ onClickDefault = (e)=>{
                     <Column selectionMode="multiple" headerStyle={{ width: '10em' }} exportable={false}></Column>
                 </DataTable>
                 <Button className='planner_btn'>
-                    <Link className='planner-link' to={{
+                    <Link className='planner_link' to={{
                         pathname: '/gs/planner',
                         state: this.state.selectedPlants}}>Add To Planner
                     </Link>

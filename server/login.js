@@ -11,15 +11,15 @@ login_router.post('/api/get_userid', function (req, res) {
     var _password = user_data._password;
     //Validation code
 
-    var sql_query = "SELECT * FROM public.userinfo where user_name='" + _username + "'";
-    console.log(sql_query);
+    var sqlQuery = "SELECT * FROM public.userinfo where user_name='" + _username + "'";
+    console.log(sqlQuery);
 
     pool.connect((err,db,done)=>{
         if (err) {
             (console.log('Error in Connecting the POOL: ' + err));
             return res.status(400).send(err);
         }
-        db.query(sql_query,(err, table) => {
+        db.query(sqlQuery,(err, table) => {
             done();
             console.log("Here Users: " + table.rowCount);
             // User doesn't exist in database

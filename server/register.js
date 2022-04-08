@@ -35,7 +35,7 @@ register_router.post('/api/create_userid', function (req, res) {
             (console.log('Error in Connecting the POOL: ' + err));
             return res.status(400).send(err);
         }
-        db.query(username_query,(err, table) => {
+        db.query(usernameQuery,(err, table) => {
 
             done();
             // Bad request (some info is missing)
@@ -56,11 +56,10 @@ register_router.post('/api/create_userid', function (req, res) {
                     'firstname, lastname, user_password, security_question, security_questi' +
                     'on_code , security_answer, country) VALUES (\'%s\', \'%s\', \'%s\', \'%s\',' + 
                     '\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');', _username, _email, _firstname, _lastname
-                     , _password, _securityquestion, _securityquestioncode, _securityanswer,_selectedcountry);
+                    , _password, _securityquestion, _securityquestioncode, _securityanswer,_selectedcountry);
                 db.query(insert_query,(err, table) => {});
                 return res.status(200).send({text:"Profile Successfully Created"});
             }
-           
         })
     });
 

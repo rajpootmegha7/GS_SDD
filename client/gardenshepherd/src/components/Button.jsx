@@ -14,11 +14,6 @@ class Button extends Component {
         }
     }
 
-    /*clickHandler() {
-        console.log('Button clicked');
-    }*/
-
-
     render() {
         return (
             <div className="btn-container">
