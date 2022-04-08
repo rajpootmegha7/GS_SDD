@@ -12,6 +12,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -232,16 +233,20 @@ onClickDefault = (e)=>{
                     <Column header="Description" body={this.rowPlantDescription}></Column>
                     <Column selectionMode="multiple" headerStyle={{ width: '10em' }} exportable={false}></Column>
                 </DataTable>
-                <Button className='planner_btn'>
-                    <Link className='planner-link' to={{
-                        pathname: '/gs/planner',
-                        state: this.state.selectedPlants}}>Add To Planner
-                    </Link>
-                </Button>
+                <div className='planner_btn_card'>
+                    <Button className='planner_btn'>
+                        <Link className='planner-link' to={{
+                            pathname: '/gs/planner',
+                            state: this.state.selectedPlants}}>Add To Planner
+                        </Link>
+                    </Button>
+                </div>
+                
                     
                 
   
                 </div>
+                <Footer/>
 
             </div>
         )

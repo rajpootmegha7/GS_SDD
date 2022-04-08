@@ -145,3 +145,11 @@
     background: white;
     color: dodgerblue;
 }
+.dashboard_container{
+    flex-wrap: nowrap;
+}
+
+.planner_btn_card {
+    width: 100%;
+    height: 4em;
+}

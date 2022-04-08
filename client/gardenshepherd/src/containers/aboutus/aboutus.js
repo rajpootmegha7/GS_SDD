@@ -39,7 +39,7 @@ export default class aboutus extends Component {
                         <img src={otto_pic} alt="Otto" className="otto_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
-                        <div>
+                        <div className='para_text'>
                             I am a Computer Science undergrad working as a back-end developer and product owner for Garden Shepherd.
                             I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
                             I found planning a garden to be difficult and wanted to create a tool to help myself and others.
@@ -55,7 +55,7 @@ export default class aboutus extends Component {
                 </Parallax>
                 <div className="person_container">
                     <div className="about_us_bio flex_center">
-                        <div>
+                        <div className='para_text'>
                             I am an ITWS grad student working as a front-end developer and project manager for Garden Shepherd.
                             The reason why I choose to be part of this team is that I love plants and nature.
                             I have my kitchen garden and like to spend time growing new plants.
@@ -77,7 +77,7 @@ export default class aboutus extends Component {
                         <img src={danice_pic} alt="Danice" className="danice_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
-                        <div>
+                        <div className='para_text'>
                             Hi, I’m a Computer Science undergraduate working as a back-end developer for Garden Shepherd.
                             I am a plant owner myself but have been primarily focused on indoor plants such as succulents and cacti.
                             In my free time, I have hobbies such as art, video/tabletop games and reading.
@@ -91,7 +91,7 @@ export default class aboutus extends Component {
                 </Parallax>
                 <div className="person_container">
                     <div className="about_us_bio flex_center">
-                        <div>
+                        <div className='para_text'>
                             I am a CS undergraduate senior working as a back-end developer for Garden Shepherd.
                             I currently don’t have any plants but I’d like some in the future so working on a project related to them is nice.
                             In my free time I like to play video games, read books and watch anime.
@@ -111,7 +111,7 @@ export default class aboutus extends Component {
                         <img src={nate_pic} alt="Nate" className="nate_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
-                        <div>
+                        <div className='para_text'>
                             Hello everyone! A little bit about myself, I am a graduating CS student currently working as a frontend developer for Garden Shepherd.
                             I knew I wanted to work on this project as soon as I heard about it, as I grew up in a household full of plants, and would love to see an app that helps people get into gardening.
                             My hobbies include archery, doodling, and playing video games.

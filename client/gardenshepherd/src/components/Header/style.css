@@ -4,10 +4,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: lavender; */
+    background-color: white;
 }
 .logo{
-    z-index: -1;
+    z-index: 2;
+    width:150px;
+    height:70px;
+    position: relative;
 }
 
 

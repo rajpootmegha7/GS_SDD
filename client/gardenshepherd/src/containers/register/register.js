@@ -9,8 +9,7 @@ import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
 import Footer from '../../components/Footer/Footer'
 
-
-// let options = useMemo(() => countryList().getData(), []);
+// This class contains all the functionality to for user to register for our application
 
 export default class register extends Component {
 
@@ -46,6 +45,7 @@ export default class register extends Component {
         this.showError = this.showError.bind(this);
 
     }
+    //Country details in the dropdown
     countryTemplate(option) {
         return (
             <div className="country-item">
@@ -53,6 +53,7 @@ export default class register extends Component {
             </div>
         );
     }
+    // Function to handle the security question on the form
     onSecurityQuestionChange(event) {
         event.preventDefault();
         console.log(event);
@@ -60,6 +61,7 @@ export default class register extends Component {
         return;
 
     }
+    //Validations for all the fields before sending the data to the backend.
     onclickSubmit(event) {
         event.preventDefault();
 
@@ -106,7 +108,7 @@ export default class register extends Component {
         
         this.verifyRegistration(data);
     }
-
+    //POST api for sending the data to the backend node server.
     verifyRegistration(data) {
         console.log('Verifying user input');
         var request = new Request('http://localhost:4000/register/api/create_userid', {
@@ -132,17 +134,18 @@ export default class register extends Component {
                 that.showError(err.message);
             });
         }
-
+    // toast message to display the success messages    
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
+    //toast message to display the error messages
     showError(message) {
         this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
     }
 
 
     componentDidMount() {
-
+        //function to push the data of country list
         countryList().getData().forEach(element => {
             var row = { name: element.label, code: element.value }
             this.countrylist.push(row);

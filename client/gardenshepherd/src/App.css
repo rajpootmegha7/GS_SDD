@@ -5,6 +5,8 @@
     font-size: 18px;
 }
 body{
+    height: 54em;
+    width: 100%;
     margin: 0px;
 }
 a{
