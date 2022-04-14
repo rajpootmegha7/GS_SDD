@@ -11,6 +11,7 @@ const forgot_router = require('./forgot_password');
 const security_router = require('./checkSecQuestion');
 const reset_router = require('./reset_password');
 const dashboard_router = require('./dashboard');
+const planner_router = require('./planner');
 
 const PORT = 4000;               // LOCAL PORT DEFINITIONS where the backend will be hosted..............
 
@@ -42,3 +43,4 @@ app.use('/forgot_password', forgot_router);
 app.use('/checkSecQuestion', security_router);
 app.use('/reset_password', reset_router);
 app.use('/dashboard',dashboard_router);
+app.use('/planner',planner_router);
