@@ -25,6 +25,10 @@
     margin: 0 auto;
     margin-top: 5%;
 }
+.msg_container{
+    
+    margin-bottom: 20em;
+}
 .btn-saveplanner{
     margin: 10px;
 }
@@ -38,4 +42,41 @@
 #ipblocks{
     font-style: italic;
     font-size: 15px;
+}
+
+.p-tabview >.p-tabview-panels {
+    padding: unset;
+}
+.p-tabview-title{
+    margin: 3px;
+    font-size: small;
+}
+
+.square_details{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square_blocks{
+    background-color: black;
+    color: black;
+    width: 100px;
+    height: 100px;
+}
+
+.saved_container{
+    margin: 11px;
+    width: 60%;
+    padding: 1%;
+}
+
+.save_board_btn{
+    float: right;
+    position: relative;
+    margin-right: 15%;
+    margin-top: 4%;
+}
+.p-tabview-nav-content{
+    border: 1px solid lightgreen;
 }

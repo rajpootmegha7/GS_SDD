@@ -1,24 +1,31 @@
 import React, { Component } from 'react'
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './style.css'
 import Button from '../../components/Button'
+import Footer from '../../components/Footer/Footer';
 // class component for logout functionality.
 export default class Logout extends Component {
-  componentDidMount(){
+  componentDidMount() {
     localStorage.clear('username');
     localStorage.setItem('isLogged', false);
   }
   render() {
     return (
-      <div className='logoff_container'>
+      <div>
+        <div className='logoff_container'>
           <p>Successfully Logged Out</p>
-            <Button className='login_btn'>
-              <Link className='planner-link' to={{
+          <Button className='login_btn'>
+            <Link className='planner-link' to={{
               pathname: '/Login',
-              }}>Login
-              </Link>
-            </Button>
+            }}>Login
+            </Link>
+          </Button>
+
         </div>
+        <Footer />
+
+      </div>
+
     )
   }
 }

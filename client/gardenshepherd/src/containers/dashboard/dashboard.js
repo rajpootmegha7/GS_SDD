@@ -184,10 +184,11 @@ onClickDefault = (e)=>{
                 <Header pagename={'dashboard'} plants_data={this.state.selectedPlants}/>
                 <Parallax bgImage={image_p1} strength={500}>
                     <div className='search_text'> 
-                        <div id='st-0'>Hi {localStorage.getItem('username')},</div>
-                        <div id='st-1'>
+                        <div id='st-0'>Hi {localStorage.getItem('username')}, your search for plants begins here.. </div>
+                        {/* <div id='st-1'>
                             your search for plants begins here..
-                        </div>
+                        </div> */}
+                       
                     </div>
                 </Parallax>
 
@@ -242,9 +243,6 @@ onClickDefault = (e)=>{
                     </Button>
                 </div>
                 
-                    
-                
-  
                 </div>
                 <Footer/>
 
