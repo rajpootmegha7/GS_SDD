@@ -151,7 +151,7 @@ export default class Planner extends Component {
                     <Header pagename={'planner'} />
 
                     <TabView className="tabview-header-icon">
-                        <TabPanel header="Active Board">
+                        <TabPanel data-testid="tabpanel-test" header="Active Board">
                             {this.state.plantList ?
                                 <div className='planner_desk'>
                                     <div className='plant-list_menu' >
@@ -171,7 +171,7 @@ export default class Planner extends Component {
                                 </div>
                                 :
                                 <div className='msg_container'>
-                                    <p>No Selection Made on the Enclyopedia</p>
+                                    <p data-testid="planner-test">No Selection Made on the Encyclopedia</p>
                                 </div>
                             }
                         </TabPanel>

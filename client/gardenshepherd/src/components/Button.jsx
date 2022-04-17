@@ -16,7 +16,7 @@ class Button extends Component {
 
     render() {
         return (
-            <div className="btn-container">
+            <div data-testid="button-test" className="btn-container">
                 <div className={"btn " + (this.state.pressed ? "pressed" : "")}
                     onClick={() => {
                     if(this.props.onClick) this.props.onClick();

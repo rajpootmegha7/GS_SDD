@@ -166,7 +166,7 @@ export default class register extends Component {
                                     <a className='l_btn' href='/Login'>Have an account? Sign in </a>
                                 </span>
                             </div>
-                            <h1 id="sign_up">Sign up </h1>
+                            <h1 data-testid="signup-test" id="sign_up">Sign up </h1>
                             <span className="p-float-label">
                                 <InputText
                                     className="form_input"
@@ -229,7 +229,7 @@ export default class register extends Component {
                                 options={this.countrylist}
                                 onChange={(e) => this.setState({ selectedCountries: e.value })} filter optionLabel="name"
                                 itemTemplate={this.countryTemplate} style={{ width: '15rem' }} listStyle={{ maxHeight: '230px' }} />
-                            <Button id="button_submit_1" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
+                            <Button data-testid="button-test" id="button_submit_1" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                         </div>
                     </div>
                     <Footer />

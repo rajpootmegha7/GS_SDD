@@ -93,7 +93,7 @@ export default class login extends Component {
                                 <a className='l_btn' href="/Register">No account? Sign up </a>
                             </span>
                         </div>
-                        <h1 id="sign_in">Sign in </h1>
+                        <h1 data-testid="sign-in-test" id="sign_in">Sign in </h1>
                         <span className="p_float_label">
                         <p id='label_text'>Enter your Username</p>   
                         <InputText
@@ -117,7 +117,7 @@ export default class login extends Component {
                         <Button label="Submit" className="l_button_submit p-button-outlined p-button-success" onClick={this.clickSubmit} />
                     </div>
                 </div>
-                <Footer />
+                <Footer data-testid="login-footer"/>
             </Fragment>
 
         )

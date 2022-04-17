@@ -185,19 +185,15 @@ onClickDefault = (e)=>{
                 <Parallax bgImage={image_p1} strength={500}>
                     <div className='search_text'> 
                         <div id='st-0'>Hi {localStorage.getItem('username')}, your search for plants begins here.. </div>
-                        {/* <div id='st-1'>
-                            your search for plants begins here..
-                        </div> */}
-                       
                     </div>
                 </Parallax>
 
                 <Parallax bgImage={image_p2} strength={-500}   > 
-                    <div className='search_text'>
+                    <div data-testid="parallax-test" className='search_text'>
                         <div id='st-2'>choose your filters</div>
                     </div>
                 </Parallax>
-                <div className='search_filter_cont'>
+                <div data-testid="dropdown-test" className='search_filter_cont'>
                     <InputText id="drop-1" placeholder='Enter Plant Name'
                         value={this.state.plantName}
                         onChange={(e) => this.setState({ plantName: e.target.value })} />
@@ -234,7 +230,7 @@ onClickDefault = (e)=>{
                     <Column header="Description" body={this.rowPlantDescription}></Column>
                     <Column selectionMode="multiple" headerStyle={{ width: '10em' }} exportable={false}></Column>
                 </DataTable>
-                <div className='planner_btn_card'>
+                <div data-testid="button-test" className='planner_btn_card'>
                     <Button className='planner_btn'>
                         <Link className='planner-link' to={{
                             pathname: '/gs/planner',

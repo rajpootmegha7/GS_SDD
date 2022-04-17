@@ -192,16 +192,18 @@ export default class forgotpass extends Component {
                 <div className="fp_image_container"></div>
 
                 { this.state.showUsername ? <div className="forgotpass_container">
-                    <div className="forgot">Forgot Password?</div>
+                    <div data-testid="forgot-test" className="forgot">Forgot Password?</div>
                     <div className="input_container">
-                        <InputText  id="username" aria-describedby="username-help"
-                                    placeholder='Enter username' required
+                        <InputText  data-testid="forgot-2-test" id="username" aria-describedby="username-help"
+                                    placeholder='Enter username' value={this.state.username}
                                     onChange={(e) => this.setState({ username: e.target.value })}
                         />
                         { this.state.showUsernameButton ? <div>
+                        <div>
                             <Button onClick={this.clickSubmitUsername}>
                                 Submit
                             </Button >
+                        </div>
                         </div> : null}
                     </div>
                     { this.state.showSecurity ? <div className="security_container" visible="false">
@@ -209,13 +211,15 @@ export default class forgotpass extends Component {
                         <InputText  id="username" placeholder='Answer' required
                                     onChange={(e) => this.setState({ securityAnswer: e.target.value })}
                         />
-                        <Button onClick={this.clickSubmitSecurity}>
-                            Submit
-                        </Button >
+                        <div role="button2">
+                            <Button onClick={this.clickSubmitSecurity}>
+                                Submit
+                            </Button >
+                        </div>
                     </div> : null}
                 </div> : null}
                 { this.state.showResetPass ? <div className="resetpass_container">
-                    <div className="resetpass">Reset Password</div>
+                    <div data-testid="reset-test" className="resetpass">Reset Password</div>
                     <div className="input_container">
                         <Password
                             className="f_password"

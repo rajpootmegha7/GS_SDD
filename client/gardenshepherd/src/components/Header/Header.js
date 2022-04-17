@@ -38,12 +38,12 @@ export default class Header extends Component {
     render() {
         return (
             <div className='header_cont'>
-                <div className='logo'><img src={logo_refernce} alt="Girl in a jacket" width="150" height="70px" /></div>
+                <div data-testid="header-test" className='logo'><img src={logo_refernce} alt="GS Logo" width="150" height="70px" /></div>
                 <div className='menu_cont'>
                     <Link id='0_btn' to='/gs/dashboard'>Plant Enclyopedia</Link>
                     <Link id='1_btn' to='/gs/planner' >Planner</Link>
                     <Link id='2_btn' to='/gs/about-us'>About us</Link>
-                    <Link to='logout'>Logout</Link>
+                    <Link to='Logout'>Logout</Link>
                 </div>
                 
             </div>

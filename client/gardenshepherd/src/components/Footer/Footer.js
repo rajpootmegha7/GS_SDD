@@ -20,7 +20,7 @@ export default class Footer extends Component {
                             </ul>
                         </div>
                         <div class="module">
-                            <h3>Garden Shepherd</h3>
+                            <h3 data-testid="footer-test">Garden Shepherd</h3>
                             <p>
                                 Here at Garden Shepherd, we pride ourselves in our ability to help anyone with their forays into gardening.
                                 Whether its your first time or your fiftieth, our app will provide you with the tools you need to create a garden and mantain it for years!

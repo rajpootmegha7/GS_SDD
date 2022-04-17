@@ -21,7 +21,7 @@ export default class aboutus extends Component {
             <div className="about_us_container">
                 <Header pagename={'about'}/>
                 <Parallax bgImage={img1} strength={500}>
-                    <div className="first_parallax_container">
+                    <div data-testid="img1-test" className="first_parallax_container">
                         <div className="flex_center title_container">
                             <div className="page_title">
                                 About us
@@ -34,7 +34,7 @@ export default class aboutus extends Component {
                         <img src={otto_pic} alt="Otto" className="otto_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
-                        <div className='para_text'>
+                        <div data-testid="otto-text-test" className='para_text'>
                             I am a Computer Science undergrad working as a back-end developer and product owner for Garden Shepherd.
                             I came up with the concept of Garden Shepherd because I wanted to learn how to garden myself to increase resilience to future resource shortages that could potentially be brought about by climate change.
                             I found planning a garden to be difficult and wanted to create a tool to help myself and others.
@@ -106,7 +106,7 @@ export default class aboutus extends Component {
                         <img src={nate_pic} alt="Nate" className="nate_pic" />
                     </div>
                     <div className="about_us_bio flex_center">
-                        <div className='para_text'>
+                        <div data-testid="nate-text-test" className='para_text'>
                             Hello everyone! A little bit about myself, I am a graduating CS student currently working as a frontend developer for Garden Shepherd.
                             I knew I wanted to work on this project as soon as I heard about it, as I grew up in a household full of plants, and would love to see an app that helps people get into gardening.
                             My hobbies include archery, doodling, and playing video games.
