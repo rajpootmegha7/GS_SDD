@@ -155,7 +155,7 @@ export default class Planner extends Component {
                             {this.state.plantList ?
                                 <div className='planner_desk'>
                                     <div className='plant-list_menu' >
-                                        <h3>Listed {this.state.plantList.length - 1} Plants</h3>
+                                        <h3>Listed {this.state.plantList.length - 2} Plants</h3>
                                         <ListBox value={this.state.selectedPlant} options={this.state.plantList}
                                             onChange={(e) => this.setState({ selectedPlant: e.value })}
                                             optionLabel="name" style={{ width: '15rem' }} listStyle={{ maxHeight: '40em' }} filter />

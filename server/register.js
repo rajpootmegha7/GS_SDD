@@ -27,7 +27,7 @@ register_router.post('/api/create_userid', function (req, res) {
     }
 
     // Initial SQL Query to check if user already exists
-    var username_query = util.format("SELECT * FROM userInfo where user_name=\'%s\'", _username);
+    var usernameQuery = util.format("SELECT * FROM userInfo where user_name=\'%s\'", _username);
 
     pool.connect((err,db,done)=> {
         if (err) {
