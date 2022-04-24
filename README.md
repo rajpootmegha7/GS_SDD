@@ -24,8 +24,8 @@ In the GardenShepard, the user is able to create a personalized account in order
 
 1. Download the Zip file and extract all contents to an accessible in local machine
 2. To setup the client open a command prompt within the "...\GS_SDD-main\client\gardenshepherd" directory and run npm install.
-3. To setup the server open a command prompt within the "...\GS_SDD\server" directory and run npm install.
-4. To setup the database open up the psql shell and enter the command `\i '...GS_SDD/server/database.sql'` (where the ellipses represents the rest of the absolute path to the file). Note you must use forward slashes to indicate subdirectories, even when on a windows system.
+3. To setup the server open a command prompt within the "...\GS_SDD-main\server" directory and run npm install.
+4. To setup the database open up the psql shell and enter the command `\i '...GS_SDD-main/server/database.sql'` (where the ellipses represents the rest of the absolute path to the file). Note you must use forward slashes to indicate subdirectories, even when on a windows system.
 
 ## Running
 1. To run the client open a command prompt within the "...\GS_SDD-main\client\gardenshepherd" directory and run npm start.
