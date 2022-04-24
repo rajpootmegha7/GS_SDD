@@ -7,7 +7,7 @@ import forgot from './containers/forgotpass/forgotpass';
 import register from './containers/register/register';
 import dashboard from './containers/dashboard/dashboard';
 import aboutus from './containers/aboutus/aboutus';
-import Planner from './containers/Planner/planner';
+import Planner from './containers/planner/planner';
 import Logout from './containers/Logout/Logout';
 import ProtectedRoute from './components/ProtectedRoute';
 
